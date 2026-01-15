@@ -1,4 +1,12 @@
-import { Newspaper, Lightbulb, Megaphone } from "lucide-react";
+import {
+  Newspaper,
+  Lightbulb,
+  Megaphone,
+  Linkedin,
+  Twitter,
+  Instagram,
+  Facebook,
+} from "lucide-react";
 
 export const siteConfig = {
   // Global site settings
@@ -566,6 +574,38 @@ export const siteConfig = {
       successMessage:
         "Thank you! Your message has been sent successfully. We'll get back to you within 24 hours.",
     },
+  },
+
+  // FooterSection content
+  footer: {
+    slogan:
+      "Powering progress, fueling tomorrow. Your trusted partner for CNG conversions and refueling services in Nigeria.",
+    quickLinks: [
+      { label: "Home", type: "route", path: "/" },
+      { label: "About Us", type: "scroll", id: "about" },
+      { label: "Solutions", type: "scroll", id: "solutions" },
+      { label: "Savings Calculator", type: "scroll", id: "calculator" },
+      { label: "Resources", type: "route", path: "/resources" },
+      { label: "Blog", type: "route", path: "/blog" },
+      { label: "Contact", type: "scroll", id: "contact" },
+    ],
+    services: [
+      "Mobile CNG conversion",
+      "On-demand refueling",
+      "Fleet solutions",
+    ],
+    contact: {
+      address: "Lagos, Nigeria",
+      phone: "+234 812 345 6789",
+      email: "info@adesaenergy.com",
+      website: "www.adesaenergy.com",
+    },
+    socials: [
+      { icon: Linkedin, href: "#" },
+      { icon: Twitter, href: "#" },
+      { icon: Instagram, href: "#" },
+      { icon: Facebook, href: "#" },
+    ],
   },
 
   // Color palette from brand guide
