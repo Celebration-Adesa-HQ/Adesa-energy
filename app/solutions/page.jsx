@@ -1,9 +1,9 @@
-import ResourcesSection from "@/components/Sections/ResourcesSection";
+import SolutionsSection from "@/components/Sections/SolutionsSection";
 
 export default function ResourcesPage() {
   return (
     <div className="mt-10">
-      <ResourcesSection />
+      <SolutionsSection />
     </div>
   );
 }
