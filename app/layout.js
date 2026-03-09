@@ -47,23 +47,23 @@ export default function RootLayout({ children }) {
         </ThemeProvider>
         <Analytics />
         <SpeedInsights />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Adesa Energy",
+              url: "https://www.adesaenergy.com",
+              logo: "https://www.adesaenergy.com/adesa-energy.png",
+              sameAs: [
+                "https://twitter.com/adesaenergy",
+                "https://linkedin.com/company/adesa-energy",
+              ],
+            }),
+          }}
+        />
       </body>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            name: "Adesa Energy",
-            url: "https://www.adesaenergy.com",
-            logo: "https://www.adesaenergy.com/adesa-energy.png",
-            sameAs: [
-              "https://twitter.com/adesaenergy",
-              "https://linkedin.com/company/adesa-energy",
-            ],
-          }),
-        }}
-      />
     </html>
   );
 }

@@ -11,7 +11,7 @@ export const siteConfig = {
   name: "Adesa Energy",
   description:
     "Adesa Energy delivers mobile CNG conversion and on-demand refueling services. Cut fuel costs, improve efficiency, and power fleets and personal vehicles across Nigeria.",
-  url: "https://www.adesaenergy.com",
+  url: "https://adesaenergy.com",
   ogImage: "/adesa-energy.png",
   links: {
     twitter: "https://twitter.com/adesaenergy",

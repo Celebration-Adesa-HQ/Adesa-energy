@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 // Dynamic metadata per post
 export async function generateMetadata({ params }) {
   const { post } = await params;
-  const currentPost = siteConfig.blog.posts.find((p) => p.slug === post);
+  const currentPost = siteConfig?.blog.posts.find((p) => p.slug === post);
 
   if (!currentPost) {
     return {
