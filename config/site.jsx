@@ -764,28 +764,14 @@ export const siteConfig = {
   },
 
   // Newsletter section content
-  newsletter: {
-    section: {
-      title: "Stay updated with CNG insights",
-      description:
-        "Get the latest news, tips, and exclusive offers delivered to your inbox.",
-      footerNote:
-        "By subscribing, you agree to our Privacy Policy. Unsubscribe anytime.",
-    },
-
-    form: {
-      placeholder: "Enter your email",
-      buttonText: "Subscribe now",
-      loadingText: "Subscribing...",
-    },
-
-    behavior: {
-      successRate: 0.8,
-      apiDelay: 1000,
-      resetDelay: 5000,
-    },
-  },
-
+      newsletter: {
+        title: "Weekly Insights",
+        description:
+          "Join 5,000+ subscribers receiving our weekly growth insights.",
+        placeholder: "Email address",
+        submitLabel: "Subscribe",
+        url: "https://www.linkedin.com/newsletters/the-adesa-lens-7352962421847638016/",
+      },
   // Waitlist section content
   waitlist: {
     section: {
