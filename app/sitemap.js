@@ -1,5 +1,5 @@
 export default async function sitemap() {
-  const baseUrl = "https://adesaenergy.com";
+  const baseUrl = "https://www.adesaenergy.com";
 
   const staticPages = [
     {

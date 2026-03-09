@@ -5,6 +5,6 @@ export default function robots() {
       allow: "/",
       disallow: "/private/",
     },
-    sitemap: "https://adesaenergy.com/sitemap.xml",
+    sitemap: "https://www.adesaenergy.com/sitemap.xml",
   };
 }
