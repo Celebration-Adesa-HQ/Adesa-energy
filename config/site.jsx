@@ -415,7 +415,7 @@ export const siteConfig = {
       },
     ],
     prices: {
-      petrol: 737, // NGN per liter
+      petrol: 1200, // NGN per liter
       cng: 350, // NGN per liter
     },
     co2PerLiter: 2.3, // kg CO2 per liter of petrol
