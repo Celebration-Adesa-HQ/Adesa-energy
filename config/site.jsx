@@ -419,7 +419,8 @@ export const siteConfig = {
       cng: 450, // NGN per liter
     },
     co2PerLiter: 2.3, // kg CO2 per liter of petrol
-    savingsPercentage: 20, // Default savings percentage
+
+    savingsPercentage: 50, // Default savings percentage
     vehicleMultipliers: {
       sedan: 1.0,
       suv: 1.2,
@@ -430,7 +431,7 @@ export const siteConfig = {
     priceDisplay: {
       petrol: "₦1200/L",
       cng: "₦450/L",
-      savings: "~20%",
+      savings: "~50%",
       co2Reduction: "~30%",
     },
   },
@@ -764,14 +765,14 @@ export const siteConfig = {
   },
 
   // Newsletter section content
-      newsletter: {
-        title: "Weekly Insights",
-        description:
-          "Join 5,000+ subscribers receiving our weekly growth insights.",
-        placeholder: "Email address",
-        submitLabel: "Subscribe",
-        url: "https://www.linkedin.com/newsletters/the-adesa-lens-7352962421847638016/",
-      },
+  newsletter: {
+    title: "Weekly Insights",
+    description:
+      "Join 5,000+ subscribers receiving our weekly growth insights.",
+    placeholder: "Email address",
+    submitLabel: "Subscribe",
+    url: "https://www.linkedin.com/newsletters/the-adesa-lens-7352962421847638016/",
+  },
   // Waitlist section content
   waitlist: {
     section: {
