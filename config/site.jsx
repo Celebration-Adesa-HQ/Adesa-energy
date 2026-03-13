@@ -360,10 +360,10 @@ export const siteConfig = {
       litersPlaceholder: "e.g., 150",
       vehicleTypeLabel: "Vehicle Type",
       vehicleOptions: [
-        { value: "sedan", label: "Sedan / Saloon Car" },
-        { value: "suv", label: "SUV / Crossover" },
+        { value: "sedan", label: "Sedan Car" },
+        { value: "suv", label: "SUV" },
         { value: "pickup", label: "Pickup Truck" },
-        { value: "bus", label: "Bus / Minibus" },
+        { value: "bus", label: "Bus" },
         { value: "truck", label: "Commercial Truck" },
       ],
       calculateButton: "Calculate My Savings",
