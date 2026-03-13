@@ -419,7 +419,6 @@ export const siteConfig = {
       cng: 450, // NGN per liter
     },
     co2PerLiter: 2.3, // kg CO2 per liter of petrol
-
     savingsPercentage: 50, // Default savings percentage
     vehicleMultipliers: {
       sedan: 1.0,

@@ -11,15 +11,18 @@ import { useRouter } from "next/navigation";
 const CalculatorHeader = dynamic(() => import("./CalculatorHeader"), {
   ssr: false,
 });
-const CalculatorForm = dynamic(() => import("./CalculatorForm"), { ssr: false });
-const CalculatorResults = dynamic(() => import("./CalculatorResults"), { ssr: false });
+const CalculatorForm = dynamic(() => import("./CalculatorForm"), {
+  ssr: false,
+});
+const CalculatorResults = dynamic(() => import("./CalculatorResults"), {
+  ssr: false,
+});
 const PriceCards = dynamic(() => import("./PriceCards"), { ssr: false });
 
 const CalculatorSection = () => {
   const [calculatorResult, setCalculatorResult] = useState(null);
   const [isCalculating, setIsCalculating] = useState(false);
-  const { prices, savingsPercentage, co2PerLiter, vehicleMultipliers } =
-    siteConfig.calculator;
+  const { prices, co2PerLiter, vehicleMultipliers } = siteConfig.calculator;
   const resultsRef = useRef(null);
   const router = useRouter();
 
@@ -30,6 +33,10 @@ const CalculatorSection = () => {
       resultsRef.current.scrollIntoView({ behavior: "smooth" });
     }
   }, [calculatorResult]);
+
+  // Calculate the savings percentage based on the price difference between petrol and CNG
+  const savingsPercentage =
+    ((prices.petrol - prices.cng) / prices.petrol) * 100;
 
   // Function for handling savings and CO2 reduction calculations
   const handleCalculatorSubmit = (e, values) => {
@@ -56,22 +63,23 @@ const CalculatorSection = () => {
       monthlyFuelSpend = monthlyFuelLiters * prices.petrol; // Always using petrol price
     }
 
-    // Calculate savings and CO2 reduction using fixed savings percentage
+    // Monthly and yearly savings stay fixed, do NOT apply vehicle multiplier here
     const monthlySavings = monthlyFuelSpend * (savingsPercentage / 100);
     const yearlySavings = monthlySavings * 12;
 
-    // Get the correct CO2 value based on petrol (starting fuel type) and calculate reduction when converting to CNG
-    const co2Reduction = monthlyFuelLiters * co2PerLiter; // Always use petrol CO2 factor
-    const multiplier = vehicleMultipliers[vehicleType] || 1;
+    // CO2 reduction calculation
+    // CO2 reduction per month = liters used * CO2 per liter
+    const baseCO2Reduction = monthlyFuelLiters * co2PerLiter;
+    const multiplier = vehicleMultipliers[vehicleType.toLowerCase()] || 1;
+    const co2Reduction = baseCO2Reduction * multiplier; // vehicle type affects only CO2
 
     setCalculatorResult({
-      monthlySavings: formatCurrency(monthlySavings * multiplier),
-      yearlySavings: formatCurrency(yearlySavings * multiplier),
-      savingsPercentage: savingsPercentage, // Displaying the fixed savings percentage
-      co2Reduction: Math.round(co2Reduction * multiplier), // CO2 reduction from petrol to CNG
+      monthlySavings: formatCurrency(monthlySavings),
+      yearlySavings: formatCurrency(yearlySavings),
+      savingsPercentage: savingsPercentage.toFixed(2),
+      co2Reduction: Math.round(co2Reduction), // CO2 reduction in kg/month
       vehicleType: vehicleType.charAt(0).toUpperCase() + vehicleType.slice(1),
     });
-
     setTimeout(() => setIsCalculating(false), 300);
   };
 
@@ -98,10 +106,10 @@ const CalculatorSection = () => {
             />
           </div>
         </div>
-        <PriceCards />
+        <PriceCards savings={savingsPercentage.toFixed(2)} petrol={prices.petrol} cng={prices.cng} />
       </div>
     </motion.section>
   );
-};;;;
+};;
 
 export default CalculatorSection;
