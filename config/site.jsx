@@ -375,7 +375,7 @@ export const siteConfig = {
       title: "Your CNG Savings Potential",
       monthlySavingsLabel: "Monthly Savings",
       yearlySavingsLabel: "Yearly Savings",
-      avgSavingsLabel: "Avg. Savings",
+      avgSavingsLabel: "Savings",
       co2ReductionLabel: "CO₂ Reduction",
       vehicleTypePrefix: "For a",
       convertButton: "Convert My Vehicle Today",
@@ -402,7 +402,7 @@ export const siteConfig = {
         color: "text-[#59C6E5]",
       },
       {
-        title: "Average Savings",
+        title: "Savings Percentage",
         valueKey: "savings",
         icon: "Percent",
         color: "text-[#F37621]",
