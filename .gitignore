@@ -22,7 +22,7 @@
 
 # history
 .history
-
+.agent
 # misc
 .DS_Store
 *.pem
