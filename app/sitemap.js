@@ -6,55 +6,55 @@ export default async function sitemap() {
   const staticPages = [
     {
       url: baseUrl,
-      lastModified: new Date(),
+      lastModified: new Date("2026-06-01"),
       changeFrequency: "monthly",
-      priority: 1,
+      priority: 1.0,
     },
     {
       url: `${baseUrl}/about`,
-      lastModified: new Date(),
+      lastModified: new Date("2026-05-15"),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/solutions`,
+      lastModified: new Date("2026-05-20"),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/waitlist`,
+      lastModified: new Date("2026-06-01"),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/calculator`,
+      lastModified: new Date("2026-05-10"),
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
       url: `${baseUrl}/blog`,
-      lastModified: new Date(),
+      lastModified: new Date("2026-06-01"),
       changeFrequency: "weekly",
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/calculator`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/careers`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
       url: `${baseUrl}/resources`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/solutions`,
-      lastModified: new Date(),
+      lastModified: new Date("2026-05-01"),
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
       url: `${baseUrl}/team`,
-      lastModified: new Date(),
+      lastModified: new Date("2026-04-01"),
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/waitlist`,
-      lastModified: new Date(),
+      url: `${baseUrl}/careers`,
+      lastModified: new Date("2026-05-01"),
       changeFrequency: "monthly",
       priority: 0.7,
     },
@@ -73,7 +73,7 @@ export default async function sitemap() {
       url: `${baseUrl}/blog/${post.slug}`,
       lastModified: lastMod,
       changeFrequency: "weekly",
-      priority: 0.6,
+      priority: 0.7,
     };
   });
 
