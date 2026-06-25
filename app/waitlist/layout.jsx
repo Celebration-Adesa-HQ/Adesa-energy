@@ -1,10 +1,10 @@
 import { constructMetadata } from "@/lib/metadata";
 
 export const metadata = constructMetadata({
-  title: "Contact Adesa Energy",
+  title: "Join the Waitlist - Adesa Energy CNG",
   description:
-    "Contact Adesa Energy for mobile CNG conversion, on-demand refueling, and fleet fuel solutions across Nigeria.",
-  path: "/contact",
+    "Join the Adesa Energy waitlist to book your vehicle CNG conversion, refueling, or express interest in bank-backed financing in Nigeria.",
+  path: "/waitlist",
 });
 
 export default function ContactLayout({ children }) {

@@ -1,3 +1,5 @@
+import { siteConfig } from "@/config/site";
+
 export default async function sitemap() {
   const baseUrl = "https://www.adesaenergy.com";
 
@@ -58,5 +60,22 @@ export default async function sitemap() {
     },
   ];
 
-  return [...staticPages];
+  const blogPosts = siteConfig.blog.posts.map((post) => {
+    let lastMod = new Date();
+    try {
+      const parsed = new Date(post.date);
+      if (!isNaN(parsed.getTime())) {
+        lastMod = parsed;
+      }
+    } catch (e) {}
+
+    return {
+      url: `${baseUrl}/blog/${post.slug}`,
+      lastModified: lastMod,
+      changeFrequency: "weekly",
+      priority: 0.6,
+    };
+  });
+
+  return [...staticPages, ...blogPosts];
 }

@@ -92,17 +92,47 @@ export default function RootLayout({ children }) {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              name: "Adesa Energy",
-              url: "https://www.adesaenergy.com",
-              logo: "https://www.adesaenergy.com/adesa-energy.png",
-              sameAs: [
-                "https://twitter.com/adesaenergy",
-                "https://linkedin.com/company/adesa-energy",
-              ],
-            }),
+            __html: JSON.stringify([
+              {
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                "@id": "https://www.adesaenergy.com/#organization",
+                "name": "Adesa Energy",
+                "url": "https://www.adesaenergy.com",
+                "logo": "https://www.adesaenergy.com/adesa-energy.png",
+                "contactPoint": {
+                  "@type": "ContactPoint",
+                  "telephone": "+234-701-2345-154",
+                  "contactType": "customer service",
+                  "areaServed": "NG",
+                  "availableLanguage": "English",
+                },
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "2 Isheri road, Ojudu-Berger",
+                  "addressLocality": "Lagos",
+                  "addressCountry": "NG",
+                },
+                "sameAs": [
+                  "https://twitter.com/adesaenergy",
+                  "https://www.linkedin.com/showcase/adesa-energy/",
+                  "https://www.instagram.com/adesaenergy/?igsh=MWE2YWdvdWl2aWNvZg%3D%3D#",
+                  "https://www.facebook.com/share/17HCMqGnz4/",
+                ],
+              },
+              {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                "@id": "https://www.adesaenergy.com/#website",
+                "name": "Adesa Energy",
+                "url": "https://www.adesaenergy.com",
+                "potentialAction": {
+                  "@type": "SearchAction",
+                  "target": "https://www.adesaenergy.com/blog?search={search_term_string}",
+                  "query-input": "required name=search_term_string",
+                },
+              },
+            ]),
           }}
         />
       </body>

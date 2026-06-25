@@ -5,10 +5,9 @@ import dynamic from "next/dynamic";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
+import NavLinks from "./NavLinks";
+import ThemeSwitch from "../ThemeSwitch";
 
-// Lazy-load subcomponents
-const ThemeSwitch = dynamic(() => import("../ThemeSwitch"), { ssr: false });
-const NavLinks = dynamic(() => import("./NavLinks"), { ssr: false });
 
 export default function Navbar({ activeSection, handleNavClick }) {
   const [open, setOpen] = useState(false);

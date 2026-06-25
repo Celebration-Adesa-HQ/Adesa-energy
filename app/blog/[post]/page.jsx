@@ -51,5 +51,53 @@ export default async function BlogDetailPage({ params }) {
     return notFound();
   }
 
-  return <BlogDetailClient currentPost={currentPost} />;
+  const postImageUrl = currentPost.image
+    ? currentPost.image.startsWith("/")
+      ? `${siteConfig.url.replace(/\/$/, "")}${currentPost.image}`
+      : currentPost.image
+    : `${siteConfig.url.replace(/\/$/, "")}/adesa-energy.png`;
+
+  const parseDate = (dateStr) => {
+    try {
+      const d = new Date(dateStr);
+      if (!isNaN(d.getTime())) return d.toISOString();
+    } catch (e) {}
+    return new Date().toISOString();
+  };
+
+  const blogSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": currentPost.title,
+    "description": currentPost.excerpt,
+    "image": postImageUrl,
+    "datePublished": parseDate(currentPost.date),
+    "author": {
+      "@type": "Organization",
+      "name": "Adesa Energy",
+      "url": "https://www.adesaenergy.com",
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Adesa Energy",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.adesaenergy.com/adesa-energy.png",
+      },
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `${siteConfig.url.replace(/\/$/, "")}/blog/${currentPost.slug}`,
+    },
+  };
+
+  return (
+    <>
+      <BlogDetailClient currentPost={currentPost} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }}
+      />
+    </>
+  );
 }
