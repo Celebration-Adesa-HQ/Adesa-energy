@@ -1,3 +1,5 @@
+"use client";
+
 import {
   MapPin,
   Phone,
@@ -23,9 +25,9 @@ const socialMap = { Linkedin, Twitter, Instagram, Facebook };
 const ContactInfo = () => {
   const contactConfig = siteConfig.waitlist;
   return (
-    <div className="lg:col-span-1 space-y-6">
+    <div className="lg:col-span-1 space-y-4">
       {contactConfig.infoCards.map((card, index) => {
-        const Icon = iconMap[card.type];
+        const Icon = iconMap[card.type] || MapPin;
 
         return (
           <motion.div
@@ -33,22 +35,22 @@ const ContactInfo = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="bg-white dark:bg-[#2E302C] rounded-xl p-6 shadow-sm border border-gray-200 dark:border-gray-800"
+            transition={{ duration: 0.4, delay: index * 0.08 }}
+            className="bg-white dark:bg-[#0E1A38] rounded-2xl p-6 border border-slate-200/80 dark:border-white/10 shadow-sm hover:shadow-md transition-all"
           >
-            <div className="flex items-start space-x-4">
-              <div className="w-12 h-12 bg-[#F37621]/10 rounded-lg flex items-center justify-center shrink-0">
-                <Icon className="w-6 h-6 text-[#F37621]" />
+            <div className="flex items-start gap-4">
+              <div className="w-11 h-11 bg-burnt-orange/10 border border-burnt-orange/20 rounded-xl flex items-center justify-center shrink-0 text-burnt-orange">
+                <Icon className="w-5 h-5" />
               </div>
-              <div>
-                <h3 className="font-semibold text-[#22244E] dark:text-white mb-1 font-montserrat">
+              <div className="space-y-1">
+                <h3 className="font-heading font-bold text-slate-900 dark:text-white text-base">
                   {card.title}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300 font-inter">
+                <p className="text-slate-600 dark:text-slate-300 font-sans text-sm break-all">
                   {card.value}
                 </p>
                 {card.note && (
-                  <p className="text-sm text-gray-500 dark:text-gray-400 font-inter">
+                  <p className="text-xs text-slate-400 font-sans pt-0.5">
                     {card.note}
                   </p>
                 )}
@@ -62,24 +64,30 @@ const ContactInfo = () => {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.5, delay: 0.4 }}
-        className="bg-[#22244E] rounded-xl p-6"
+        transition={{ duration: 0.4, delay: 0.3 }}
+        className="bg-linear-to-br from-[#0B1530] via-[#0E1A38] to-[#13224A] rounded-2xl p-6 text-white border border-white/10 shadow-md"
       >
-        <h3 className="font-semibold text-white mb-4 font-montserrat">
-          Follow us
+        <h3 className="font-heading font-bold text-white text-base mb-3">
+          Follow Our Journey
         </h3>
-        <div className="flex space-x-4">
+        <p className="text-xs text-slate-300 mb-4 font-sans leading-relaxed">
+          Stay connected on social platforms for deployment updates and live conversion showcases.
+        </p>
+        <div className="flex items-center gap-2.5">
           {contactConfig.socials.map((social) => {
-            const Icon = socialMap[social.name];
+            const Icon = socialMap[social.name] || Globe;
             return (
               <motion.a
                 key={social.name}
-                whileHover={{ scale: 1.1 }}
+                whileHover={{ scale: 1.08, y: -2 }}
+                whileTap={{ scale: 0.95 }}
                 href={social.url}
-                className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-[#F37621] transition"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-white/10 hover:bg-burnt-orange rounded-xl flex items-center justify-center text-white border border-white/10 hover:border-burnt-orange transition-all cursor-pointer"
                 aria-label={`Visit our ${social.name} page`}
               >
-                <Icon className="w-5 h-5 text-white" />
+                <Icon className="w-4 h-4" />
               </motion.a>
             );
           })}

@@ -56,7 +56,7 @@ export default function ContactLayout({ children }) {
     },
     "inLanguage": "en-NG",
     "contactOption": "TollFree",
-    "telephone": "+234-701-2345-154",
+    "telephone": "+2348023087303",
     "email": "info@adesahq.com",
     "availableLanguage": {
       "@type": "Language",

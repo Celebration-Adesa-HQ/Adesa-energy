@@ -90,7 +90,7 @@ const sections = [
       "Cancellations within 24 hours of the appointment may incur a cancellation fee.",
       "Refunds for completed CNG conversions are subject to evaluation if a technical defect is identified.",
       "Refunds are processed within 5–10 business days via the original payment method.",
-      "Contact us at info@adesahq.com or +234 701 2345 154 to initiate a cancellation or refund request.",
+      "Contact us at info@adesahq.com or +2348023087303 to initiate a cancellation or refund request.",
     ],
   },
   {

@@ -1,9 +1,9 @@
 import ContactSection from "@/components/Contact_components/ContactSection";
 
-export default function CalculatorPage() {
- return (
-   <div className="mt-10">
-    <ContactSection />
-   </div>
- );
+export default function WaitlistPage() {
+  return (
+    <div>
+      <ContactSection />
+    </div>
+  );
 }

@@ -27,28 +27,18 @@ export default function AppShell({ children }) {
     router.push(path);
   };
 
+  const isHome = pathname === "/";
+
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
       <Navbar activeSection={activeSection} handleNavClick={handleNavClick} />
-      {children}
-      <TestimonialsSection />
+      <main className="grow pt-24 sm:pt-28">{children}</main>
+      {!isHome && <TestimonialsSection />}
       <NewsletterSection
         buttonText="Subscribe on LinkedIn"
-        className="
-    w-full
-    px-4
-    sm:px-8
-    lg:px-16
-    py-12
-    sm:py-16
-    lg:py-24
-    flex
-    flex-col
-    items-center
-    justify-center
-  "
+        className="w-full px-4 sm:px-8 lg:px-16 py-12 sm:py-16 lg:py-20 flex flex-col items-center justify-center"
       />
       <Footer onNavClick={handleNavClick} />
-    </>
+    </div>
   );
 }

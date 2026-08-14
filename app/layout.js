@@ -1,5 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
-import { Inter, Montserrat } from "next/font/google";
+import { Plus_Jakarta_Sans, Space_Grotesk } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
@@ -10,16 +9,18 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { constructMetadata } from "@/lib/metadata";
 import Image from "next/image";
 
-const inter = Inter({
+const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  variable: "--font-inter",
-  weight: ["400", "500", "600", "700"],
+  variable: "--font-sans",
+  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
 });
 
-const montserrat = Montserrat({
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  variable: "--font-montserrat",
-  weight: ["400", "500", "600", "700"],
+  variable: "--font-heading",
+  weight: ["500", "600", "700"],
+  display: "swap",
 });
 
 export const metadata = constructMetadata();
@@ -63,7 +64,7 @@ export default function RootLayout({ children }) {
       </head>
 
       <body
-        className={`${inter.variable} ${montserrat.variable} bg-background text-foreground transition-colors`}
+        className={`${jakarta.variable} ${spaceGrotesk.variable} font-sans antialiased bg-background text-foreground transition-colors selection:bg-burnt-orange selection:text-white`}
       >
         {/* Meta Pixel NoScript */}
         <noscript>
@@ -110,7 +111,7 @@ export default function RootLayout({ children }) {
                 "contactPoint": [
                   {
                     "@type": "ContactPoint",
-                    "telephone": "+234-701-2345-154",
+                    "telephone": "+2348023087303",
                     "contactType": "customer service",
                     "areaServed": "NG",
                     "availableLanguage": "English",
@@ -148,7 +149,7 @@ export default function RootLayout({ children }) {
                 "name": "Adesa Energy",
                 "image": "https://www.adesaenergy.com/adesa-energy.png",
                 "url": "https://www.adesaenergy.com",
-                "telephone": "+234-701-2345-154",
+                "telephone": "+2348023087303",
                 "email": "info@adesahq.com",
                 "priceRange": "₦₦",
                 "openingHours": "Mo-Sa 08:00-18:00",
@@ -176,7 +177,7 @@ export default function RootLayout({ children }) {
                       "addressRegion": "Lagos State",
                       "addressCountry": "NG",
                     },
-                    "telephone": "+234-701-2345-154",
+                    "telephone": "+2348023087303",
                   },
                   {
                     "@type": "LocalBusiness",
@@ -187,7 +188,7 @@ export default function RootLayout({ children }) {
                       "addressRegion": "Kwara State",
                       "addressCountry": "NG",
                     },
-                    "telephone": "+234-701-2345-154",
+                    "telephone": "+2348023087303",
                   },
                   {
                     "@type": "LocalBusiness",
@@ -198,7 +199,7 @@ export default function RootLayout({ children }) {
                       "addressRegion": "FCT Abuja",
                       "addressCountry": "NG",
                     },
-                    "telephone": "+234-701-2345-154",
+                    "telephone": "+2348023087303",
                   },
                 ],
                 "sameAs": [

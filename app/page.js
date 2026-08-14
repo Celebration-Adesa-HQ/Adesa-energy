@@ -28,7 +28,7 @@ export default function Home() {
               "@id": "https://www.adesaenergy.com/#localbusiness",
               "name": "Adesa Energy Conversion Centre",
               "image": "https://www.adesaenergy.com/adesa-energy.png",
-              "telephone": "+234 701 2345 154",
+              "telephone": "+2348023087303",
               "url": "https://www.adesaenergy.com",
               "address": {
                 "@type": "PostalAddress",
