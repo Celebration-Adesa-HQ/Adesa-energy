@@ -58,6 +58,30 @@ export default async function sitemap() {
       changeFrequency: "monthly",
       priority: 0.7,
     },
+    {
+      url: `${baseUrl}/privacy-policy`,
+      lastModified: new Date("2026-08-14"),
+      changeFrequency: "yearly",
+      priority: 0.4,
+    },
+    {
+      url: `${baseUrl}/terms`,
+      lastModified: new Date("2026-08-14"),
+      changeFrequency: "yearly",
+      priority: 0.4,
+    },
+    {
+      url: `${baseUrl}/cookie-policy`,
+      lastModified: new Date("2026-08-14"),
+      changeFrequency: "yearly",
+      priority: 0.3,
+    },
+    {
+      url: `${baseUrl}/accessibility`,
+      lastModified: new Date("2026-08-14"),
+      changeFrequency: "yearly",
+      priority: 0.3,
+    },
   ];
 
   const blogPosts = siteConfig.blog.posts.map((post) => {

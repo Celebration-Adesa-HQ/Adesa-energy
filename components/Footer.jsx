@@ -141,8 +141,27 @@ const Footer = ({ onNavClick }) => {
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-8 text-center text-gray-400 text-sm">
-          © {new Date().getFullYear()} Adesa Energy. All rights reserved.
+        <div className="border-t border-white/10 pt-8">
+          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-4">
+            {[
+              { label: "Privacy Policy", path: "/privacy-policy" },
+              { label: "Terms & Conditions", path: "/terms" },
+              { label: "Cookie Policy", path: "/cookie-policy" },
+              { label: "Accessibility", path: "/accessibility" },
+            ].map((link) => (
+              <motion.button
+                key={link.path}
+                whileHover={{ y: -2 }}
+                onClick={() => router.push(link.path)}
+                className="text-gray-500 hover:text-[#59C6E5] text-sm transition-colors"
+              >
+                {link.label}
+              </motion.button>
+            ))}
+          </div>
+          <p className="text-center text-gray-500 text-sm">
+            © {new Date().getFullYear()} Adesa Energy. All rights reserved.
+          </p>
         </div>
       </div>
 
