@@ -1,13 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import dynamic from "next/dynamic";
 import { siteConfig } from "@/config/site";
 import { UserCheck } from "lucide-react";
+import WaitlistForm from "./WaitlistForm";
+import ContactInfo from "./ContactInfo";
 
-// Lazy load the components
-const WaitlistForm = dynamic(() => import("./WaitlistForm"), { ssr: false });
-const ContactInfo = dynamic(() => import("./ContactInfo"), { ssr: false });
 
 const ContactSection = () => {
   const contactConfig = siteConfig.waitlist;

@@ -10,10 +10,7 @@ export const metadata = constructMetadata({
 
 export default function Home() {
   return (
-    <main
-      className="min-h-screen bg-zinc-50 font-sans dark:bg-black"
-      role="main"
-    >
+    <div className="min-h-screen min-w-0 bg-zinc-50 font-sans dark:bg-black">
       <h1 className="sr-only">
         Mobile CNG Conversion and Refueling Services in Nigeria
       </h1>
@@ -135,6 +132,6 @@ export default function Home() {
           ]),
         }}
       />
-    </main>
+    </div>
   );
 }

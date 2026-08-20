@@ -113,7 +113,7 @@ export default function SolutionsLayout({ children }) {
   };
 
   return (
-    <main role="main">
+    <div>
       <h1 className="sr-only">
         Mobile CNG Solutions for Vehicles and Fleets in Nigeria
       </h1>
@@ -124,6 +124,6 @@ export default function SolutionsLayout({ children }) {
           __html: JSON.stringify([breadcrumbSchema, serviceSchema]),
         }}
       />
-    </main>
+    </div>
   );
 }

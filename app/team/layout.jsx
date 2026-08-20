@@ -58,7 +58,7 @@ export default function OurTeamLayout({ children }) {
   }));
 
   return (
-    <main role="main">
+    <div>
       <h1 className="sr-only">Adesa Energy Leadership and Operations Team</h1>
       <section>{children}</section>
       <script
@@ -67,6 +67,6 @@ export default function OurTeamLayout({ children }) {
           __html: JSON.stringify([breadcrumbSchema, ...personSchemas]),
         }}
       />
-    </main>
+    </div>
   );
 }

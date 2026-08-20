@@ -173,7 +173,7 @@ const Footer = ({ onNavClick }) => {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="fixed bottom-6 right-6 w-11 h-11 rounded-2xl bg-burnt-orange text-white flex items-center justify-center shadow-lg shadow-orange-500/30 cursor-pointer z-40 hover:bg-[#d15e15] transition-colors"
+          className="scroll-to-top fixed z-40 hidden h-11 w-11 items-center justify-center rounded-2xl bg-burnt-orange text-white shadow-lg shadow-orange-500/30 transition-colors hover:bg-[#d15e15] sm:flex"
           aria-label="Scroll to top"
         >
           <ChevronUp className="w-5 h-5" />

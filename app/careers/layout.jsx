@@ -80,7 +80,7 @@ export default function CareerLayout({ children }) {
   }));
 
   return (
-    <main role="main">
+    <div>
       <h1 className="sr-only">Careers at Adesa Energy</h1>
       <section>{children}</section>
       <script
@@ -89,6 +89,6 @@ export default function CareerLayout({ children }) {
           __html: JSON.stringify([breadcrumbSchema, ...jobPostings]),
         }}
       />
-    </main>
+    </div>
   );
 }

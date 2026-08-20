@@ -65,13 +65,13 @@ export default function CalculatorLayout({ children }) {
   };
 
   return (
-    <main role="main">
+    <div>
       <h1 className="sr-only">CNG Fuel Savings Calculator — Nigeria</h1>
       <section>{children}</section>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify([breadcrumbSchema, webAppSchema]) }}
       />
-    </main>
+    </div>
   );
 }

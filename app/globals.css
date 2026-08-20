@@ -1,10 +1,12 @@
 @import "tailwindcss";
 
 @config "../tailwind.config.js";
-@plugin "../hero.ts";
 
 /* Color variables & Design System Tokens */
 :root {
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
   --background: #f8fafc;
   --foreground: #0f172a;
   
@@ -127,4 +129,261 @@ h6 {
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
+  text-size-adjust: 100%;
+}
+
+body,
+main {
+  min-width: 0;
+}
+
+body {
+  overflow-x: clip;
+}
+
+img,
+video,
+svg {
+  max-width: 100%;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+.focus-ring:focus-visible {
+  outline: 3px solid rgba(56, 189, 248, 0.7);
+  outline-offset: 3px;
+}
+
+.site-container {
+  width: min(100% - 2rem, 80rem);
+  margin-inline: auto;
+}
+
+.touch-target {
+  min-height: 2.75rem;
+}
+
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 100;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  background: #f37621;
+  color: white;
+  font-weight: 700;
+  transform: translateY(-150%);
+  transition: transform 180ms var(--ease-out);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.stretched-link::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+}
+
+.mobile-nav-drawer {
+  padding-bottom: calc(1.25rem + env(safe-area-inset-bottom));
+}
+
+.scroll-to-top {
+  right: max(1rem, env(safe-area-inset-right));
+  bottom: calc(1rem + env(safe-area-inset-bottom));
+}
+
+.brand-intro,
+.route-loader {
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(56, 189, 248, 0.12), transparent 34%),
+    radial-gradient(circle at 55% 58%, rgba(243, 118, 33, 0.1), transparent 30%),
+    #060b17;
+  color: white;
+}
+
+.brand-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 250ms var(--ease-out);
+}
+
+.brand-intro[data-leaving] {
+  opacity: 0;
+}
+
+.adesa-intro-seen .brand-intro {
+  display: none;
+}
+
+.route-loader {
+  min-height: min(34rem, calc(100dvh - 6rem));
+  padding: 4rem 1rem;
+}
+
+.brand-loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+  animation: brand-loader-reveal 650ms var(--ease-out) both;
+}
+
+.brand-loader__mark {
+  position: relative;
+  display: grid;
+  width: 7.5rem;
+  height: 7.5rem;
+  place-items: center;
+}
+
+.brand-loader__logo {
+  position: relative;
+  z-index: 2;
+  width: 5.5rem;
+  height: 5.5rem;
+  object-fit: contain;
+  filter: drop-shadow(0 0 1.5rem rgba(56, 189, 248, 0.25));
+  animation: brand-logo-breathe 1.2s var(--ease-in-out) infinite alternate;
+}
+
+.brand-loader__ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  border: 1px solid transparent;
+}
+
+.brand-loader__ring--outer {
+  border-top-color: rgba(56, 189, 248, 0.85);
+  border-right-color: rgba(56, 189, 248, 0.15);
+  animation: brand-ring-spin 1.2s linear infinite;
+}
+
+.brand-loader__ring--inner {
+  inset: 0.75rem;
+  border-right-color: rgba(243, 118, 33, 0.85);
+  border-bottom-color: rgba(243, 118, 33, 0.14);
+  animation: brand-ring-spin-reverse 1.2s linear infinite;
+}
+
+.brand-loader__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.brand-loader__copy span {
+  font-family: var(--font-heading), system-ui, sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.brand-loader__copy small {
+  color: #7dd3fc;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+@keyframes brand-loader-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(0.5rem) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes brand-logo-breathe {
+  from {
+    opacity: 0.84;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes brand-ring-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes brand-ring-spin-reverse {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@media (min-width: 40rem) {
+  .site-container {
+    width: min(100% - 3rem, 80rem);
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .touch-target:hover {
+    text-decoration-thickness: 0.1em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+  }
+
+  .brand-loader,
+  .brand-loader__logo {
+    animation: brand-loader-fade 200ms ease both;
+    transform: none;
+  }
+
+  .brand-loader__ring {
+    animation: none;
+    opacity: 0.45;
+  }
+
+  .animate-ping,
+  .animate-pulse {
+    animation: none !important;
+  }
+}
+
+@keyframes brand-loader-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }

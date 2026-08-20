@@ -1,5 +1,7 @@
 import BlogSection from "@/components/Sections/BlogSection";
+import LiveNewsSection from "@/components/Sections/LiveNewsSection";
 import { getPosts } from "@/lib/posts";
+import { getNigeriaEnergyNews } from "@/lib/news";
 
 export const metadata = {
   title: "Adesa Energy Blog",
@@ -11,18 +13,23 @@ export const metadata = {
 };
 
 export default async function BlogPage({ searchParams }) {
-  const page = Number(searchParams.page || 1);
-  const tag = searchParams.tag || null;
+  const resolvedSearchParams = await searchParams;
+  const page = Number(resolvedSearchParams?.page || 1);
+  const tag = resolvedSearchParams?.tag || null;
 
-  const { posts, totalPages } = await getPosts({ page, tag });
+  const [{ posts }, liveNews] = await Promise.all([
+    getPosts({ page, tag }),
+    getNigeriaEnergyNews({ limit: 9 }),
+  ]);
 
   return (
-    <div className="mt-10">
-      <BlogSection
-        serverPosts={posts}
-        totalPages={totalPages}
-        currentPage={page}
+    <div className="min-w-0">
+      <LiveNewsSection
+        articles={liveNews.articles}
+        unavailable={liveNews.unavailable}
+        variant="page"
       />
+      <BlogSection editorialPosts={posts} variant="page" />
     </div>
   );
 }

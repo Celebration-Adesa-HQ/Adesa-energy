@@ -1,20 +1,11 @@
 "use client";
 
 import { usePathname, useRouter } from "next/navigation";
-import dynamic from "next/dynamic";
-
-const Navbar = dynamic(() => import("@/components/Navbar_components/Navbar"), {
-  ssr: false,
-});
-const Footer = dynamic(() => import("@/components/Footer"), { ssr: false });
-const NewsletterSection = dynamic(
-  () => import("@/components/Sections/NewsletterSection"),
-  { ssr: false }
-);
-const TestimonialsSection = dynamic(
-  () => import("@/components/Sections/TestimonalsSection"),
-  { ssr: false }
-);
+import Navbar from "@/components/Navbar_components/Navbar";
+import Footer from "@/components/Footer";
+import NewsletterSection from "@/components/Sections/NewsletterSection";
+import TestimonialsSection from "@/components/Sections/TestimonalsSection";
+import FirstVisitIntro from "@/components/FirstVisitIntro";
 
 export default function AppShell({ children }) {
   const pathname = usePathname();
@@ -30,9 +21,12 @@ export default function AppShell({ children }) {
   const isHome = pathname === "/";
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex min-h-screen min-w-0 flex-col overflow-x-clip">
+      <FirstVisitIntro />
       <Navbar activeSection={activeSection} handleNavClick={handleNavClick} />
-      <main className="grow pt-24 sm:pt-28">{children}</main>
+      <main id="main-content" className="min-w-0 grow pt-24 sm:pt-28">
+        {children}
+      </main>
       {!isHome && <TestimonialsSection />}
       <NewsletterSection
         buttonText="Subscribe on LinkedIn"

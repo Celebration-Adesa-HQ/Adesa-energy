@@ -3,8 +3,7 @@ const nextConfig = {
   /* config options here */
   images: {
     remotePatterns: [
-      { protocol: "https", hostname: "**" },
-      { protocol: "http", hostname: "**" },
+      { protocol: "https", hostname: "www.facebook.com" },
     ],
   },
   experimental: {

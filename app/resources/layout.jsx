@@ -61,13 +61,13 @@ export default function ResourcesLayout({ children }) {
   };
 
   return (
-    <main role="main">
+    <div>
       <h1 className="sr-only">CNG Resources, Guides &amp; FAQs</h1>
       <section>{children}</section>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify([breadcrumbSchema, faqSchema]) }}
       />
-    </main>
+    </div>
   );
 }

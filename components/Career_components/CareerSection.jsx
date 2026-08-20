@@ -1,19 +1,18 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import { siteConfig } from "@/config/site";
+import HeroSection from "./HeroSection";
+import AboutSection from "./AboutSection";
+import JobsSection from "./JobsSection";
+import BenefitsSection from "./BenefitsSection";
+import CultureSection from "./CultureSection";
+import CtaSection from "./CtaSection";
 
-const HeroSection = dynamic(() => import("./HeroSection"), { ssr: false });
-const AboutSection = dynamic(() => import("./AboutSection"), { ssr: false });
-const JobsSection = dynamic(() => import("./JobsSection"), { ssr: false });
-const BenefitsSection = dynamic(() => import("./BenefitsSection"), { ssr: false });
-const CultureSection = dynamic(() => import("./CultureSection"), { ssr: false });
-const CtaSection = dynamic(() => import("./CtaSection"), { ssr: false });
 export default function CareerSection() {
   const { hero, about, jobs, benefits, culture, cta } = siteConfig.careers;
 
   return (
-    <div className="w-full font-sans">
+    <div className="w-full min-w-0 font-sans">
       <HeroSection hero={hero} />
       <AboutSection about={about} />
       <JobsSection jobs={jobs} />

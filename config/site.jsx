@@ -79,7 +79,7 @@ export const siteConfig = {
         label: "Vehicles converted",
       },
       {
-        suffix: "24/7",
+        displayValue: "24/7",
         label: "Support available",
       },
     ],
@@ -90,9 +90,9 @@ export const siteConfig = {
       icon: "Fuel",
     },
     images: [
-      "/Screenshot 2026-01-08 085624.png",
-      "/Screenshot 2026-01-08 085642.png",
-      "/Screenshot 2026-01-08 085807.png",
+      "/blog-cng-adoption.webp",
+      "/blog-cng-conversion-guide.webp",
+      "/blog-adesa-expansion.webp",
       "/Screenshot 2026-01-13 103937.png",
     ],
   },
@@ -579,8 +579,8 @@ export const siteConfig = {
         iconBg: "bg-light-blue/10",
         iconColor: "text-light-blue",
         tagStyle: "bg-light-blue/10 text-light-blue",
-        image: "/images/blog/cng-adoption-2025.jpg", // hero image
-        ogImage: "/images/blog/cng-adoption-2025-og.jpg", // static fallback OG image
+        image: "/blog-cng-adoption.webp",
+        ogImage: "/blog-cng-adoption.webp",
       },
       {
         icon: "Lightbulb",
@@ -604,8 +604,8 @@ export const siteConfig = {
         iconBg: "bg-white/10",
         iconColor: "text-white",
         tagStyle: "bg-burnt-orange/10 text-burnt-orange",
-        image: "/images/blog/cng-conversion-guide.jpg",
-        ogImage: "/images/blog/cng-conversion-guide-og.jpg",
+        image: "/blog-cng-conversion-guide.webp",
+        ogImage: "/blog-cng-conversion-guide.webp",
       },
       {
         icon: "Megaphone",
@@ -626,8 +626,8 @@ export const siteConfig = {
         iconBg: "bg-deep-blue/10",
         iconColor: "text-deep-blue",
         tagStyle: "bg-light-blue/10 text-light-blue",
-        image: "/images/blog/adesa-expansion.jpg",
-        ogImage: "/images/blog/adesa-expansion-og.jpg",
+        image: "/blog-adesa-expansion.webp",
+        ogImage: "/blog-adesa-expansion.webp",
       },
     ],
   },

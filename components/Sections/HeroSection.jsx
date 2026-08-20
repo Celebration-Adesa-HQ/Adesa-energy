@@ -1,203 +1,226 @@
 "use client";
 
-import { ArrowRight, Sparkles, Zap, Shield, ChevronRight } from "lucide-react";
-import { motion } from "framer-motion";
-import { siteConfig } from "@/config/site";
-import { useEffect, useState } from "react";
+import { ArrowRight, ChevronRight, Zap } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import { siteConfig } from "@/config/site";
 
-const HeroSection = ({ onNavClick }) => {
+export default function HeroSection() {
   const { hero } = siteConfig;
-
-  const [values, setValues] = useState(hero.stats.map(() => 0));
+  const reduceMotion = useReducedMotion();
+  const [values, setValues] = useState(
+    hero.stats.map((stat) => (typeof stat.value === "number" ? 0 : null)),
+  );
   const [index, setIndex] = useState(0);
+  const [carouselPaused, setCarouselPaused] = useState(false);
+  const [pageVisible, setPageVisible] = useState(true);
 
   useEffect(() => {
-    const duration = 2800;
+    if (reduceMotion) return undefined;
+
+    const duration = 1200;
     const startTime = performance.now();
+    let frameId;
 
-    function animate(now) {
-      const elapsed = now - startTime;
-      const progress = Math.min(elapsed / duration, 1);
+    const animateValues = (now) => {
+      const progress = Math.min((now - startTime) / duration, 1);
+      const easedProgress = 1 - Math.pow(1 - progress, 3);
 
-      setValues(hero.stats.map((stat) => Math.floor(stat.value * progress)));
+      setValues(
+        hero.stats.map((stat) =>
+          typeof stat.value === "number"
+            ? Math.floor(stat.value * easedProgress)
+            : null,
+        ),
+      );
 
-      if (progress < 1) {
-        requestAnimationFrame(animate);
-      }
-    }
+      if (progress < 1) frameId = requestAnimationFrame(animateValues);
+    };
 
-    requestAnimationFrame(animate);
-  }, [hero.stats]);
+    frameId = requestAnimationFrame(animateValues);
+    return () => cancelAnimationFrame(frameId);
+  }, [hero.stats, reduceMotion]);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % hero.images.length);
+    const handleVisibilityChange = () => setPageVisible(!document.hidden);
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    return () =>
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+  }, []);
+
+  useEffect(() => {
+    if (reduceMotion || carouselPaused || !pageVisible) return undefined;
+
+    const intervalId = window.setInterval(() => {
+      setIndex((currentIndex) => (currentIndex + 1) % hero.images.length);
     }, 4500);
 
-    return () => clearInterval(interval);
-  }, [hero.images.length]);
+    return () => window.clearInterval(intervalId);
+  }, [carouselPaused, hero.images.length, pageVisible, reduceMotion]);
 
   return (
     <section
       id={hero.id}
-      className="relative min-h-[90vh] flex items-center justify-center pt-8 pb-16 lg:py-24 bg-linear-to-b from-[#081126] via-[#0B1530] to-[#060b17] text-white overflow-hidden"
+      className="relative flex min-h-[calc(100dvh-6rem)] items-center overflow-hidden bg-linear-to-b from-[#081126] via-[#0B1530] to-[#060b17] py-10 text-white sm:py-14 lg:min-h-[90vh] lg:py-24"
     >
-      {/* Ambient background glows */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-sky-500/15 rounded-full blur-[140px] pointer-events-none -z-10" />
-      <div className="absolute top-1/3 right-10 w-[450px] h-[450px] bg-amber-500/10 rounded-full blur-[130px] pointer-events-none -z-10" />
-      <div className="absolute inset-0 bg-grid-pattern opacity-40 pointer-events-none -z-10" />
+      <div className="pointer-events-none absolute left-1/2 top-1/4 -z-10 h-[28rem] w-[28rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-sky-500/15 blur-[120px] sm:h-[38rem] sm:w-[38rem]" />
+      <div className="pointer-events-none absolute right-0 top-1/3 -z-10 h-72 w-72 rounded-full bg-amber-500/10 blur-[110px] sm:h-[28rem] sm:w-[28rem]" />
+      <div className="bg-grid-pattern pointer-events-none absolute inset-0 -z-10 opacity-40" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          {/* LEFT CONTENT */}
+      <div className="site-container w-full">
+        <div className="grid min-w-0 items-center gap-10 lg:grid-cols-12 lg:gap-8">
           <motion.div
-            initial={{ y: 25, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
+            initial={
+              reduceMotion
+                ? { opacity: 0 }
+                : { opacity: 0, transform: "translateY(24px)" }
+            }
+            animate={{ opacity: 1, transform: "translateY(0)" }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-7 space-y-6"
+            className="min-w-0 space-y-5 sm:space-y-6 lg:col-span-7"
           >
-            {/* Top Pill Badge */}
-            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/10 dark:bg-white/5 border border-white/15 backdrop-blur-md shadow-sm">
-              <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
+            <div className="inline-flex max-w-full items-center gap-2.5 rounded-full border border-white/15 bg-white/10 px-3.5 py-1.5 shadow-sm backdrop-blur-md">
+              <span className="relative flex h-2.5 w-2.5 shrink-0" aria-hidden="true">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500" />
               </span>
-              <span className="text-xs sm:text-sm font-semibold tracking-wide text-sky-200">
-                {hero.tagline || "Clean Energy Innovation"}
+              <span className="truncate text-xs font-semibold tracking-wide text-sky-200 sm:text-sm">
+                {hero.tagline}
               </span>
             </div>
 
-            {/* Main Headline */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-extrabold tracking-tight leading-[1.12]">
-              Power Your Fleet with{" "}
+            <h1 className="max-w-4xl text-balance font-heading text-[clamp(2rem,10vw,3rem)] font-extrabold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
+              Power your fleet with{" "}
               <span className="bg-linear-to-r from-[#F37621] via-[#FBBF24] to-[#38BDF8] bg-clip-text text-transparent">
-                Clean, Cost-Saving CNG
+                clean, cost-saving CNG
               </span>
             </h1>
 
-            {/* Description */}
-            <p className="text-base sm:text-lg text-slate-300 max-w-2xl font-sans leading-relaxed">
+            <p className="max-w-2xl text-pretty text-base leading-relaxed text-slate-300 sm:text-lg">
               {hero.description}
             </p>
 
-            {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3.5 pt-2 max-w-xl">
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                onClick={() => onNavClick(hero.ctas.primary.target)}
+            <div className="grid max-w-2xl gap-3 pt-1 sm:flex sm:flex-wrap">
+              <Link
+                href={hero.ctas.primary.target}
                 aria-label={hero.ctas.primary.ariaLabel}
-                className="group inline-flex items-center justify-center gap-2 bg-linear-to-r from-[#F37621] to-[#F59E0B] text-white px-7 py-3.5 rounded-xl font-heading font-bold text-base shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 transition-all cursor-pointer"
+                className="touch-target group inline-flex w-full items-center justify-center gap-2 rounded-xl bg-linear-to-r from-[#F37621] to-[#F59E0B] px-6 py-3.5 font-heading text-base font-bold text-white shadow-lg shadow-orange-500/25 transition-[transform,box-shadow] active:scale-[0.98] sm:w-auto"
               >
-                <span>{hero.ctas.primary.text}</span>
-                <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-              </motion.button>
+                {hero.ctas.primary.text}
+                <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+              </Link>
 
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                onClick={() => onNavClick(hero.ctas.secondary.target)}
+              <Link
+                href={hero.ctas.secondary.target}
                 aria-label={hero.ctas.secondary.ariaLabel}
-                className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/15 text-white border border-white/20 px-6 py-3.5 rounded-xl font-heading font-semibold text-base backdrop-blur-md transition-all cursor-pointer"
+                className="touch-target inline-flex w-full items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/10 px-6 py-3.5 font-heading text-base font-semibold text-white backdrop-blur-md transition-colors hover:bg-white/15 active:scale-[0.98] sm:w-auto"
               >
-                <span>{hero.ctas.secondary.text}</span>
-              </motion.button>
+                {hero.ctas.secondary.text}
+              </Link>
 
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                onClick={() => onNavClick(hero.ctas.tertiary.target)}
+              <Link
+                href={hero.ctas.tertiary.target}
                 aria-label={hero.ctas.tertiary.ariaLabel}
-                className="inline-flex items-center justify-center gap-1.5 text-slate-300 hover:text-white px-4 py-3.5 rounded-xl text-sm font-medium hover:bg-white/5 transition-all cursor-pointer sm:hidden"
+                className="touch-target inline-flex w-full items-center justify-center gap-1.5 rounded-xl px-4 py-3 text-sm font-medium text-slate-300 transition-colors hover:bg-white/5 hover:text-white sm:hidden"
               >
-                <span>{hero.ctas.tertiary.text}</span>
-                <ChevronRight className="w-4 h-4" />
-              </motion.button>
+                {hero.ctas.tertiary.text}
+                <ChevronRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
             </div>
 
-            {/* Animated Stat Badges */}
-            <div className="grid grid-cols-3 gap-3 sm:gap-4 pt-6 border-t border-white/10">
-              {hero.stats.map((stat, idx) => (
+            <dl className="grid grid-cols-3 gap-2 border-t border-white/10 pt-5 sm:gap-4 sm:pt-6">
+              {hero.stats.map((stat, statIndex) => (
                 <div
                   key={stat.label}
-                  className="bg-white/5 border border-white/10 rounded-2xl p-3 sm:p-4 backdrop-blur-md transition-transform hover:-translate-y-0.5"
+                  className="min-w-0 rounded-2xl border border-white/10 bg-white/5 p-3 backdrop-blur-md sm:p-4"
                 >
-                  <p className="text-2xl sm:text-3xl lg:text-4xl font-heading font-extrabold text-transparent bg-clip-text bg-linear-to-r from-sky-400 to-emerald-400">
-                    {values[idx] || 0}
-                    {stat.suffix}
-                  </p>
-                  <p className="text-xs sm:text-sm text-slate-400 mt-1 font-sans font-medium line-clamp-1">
+                  <dd className="bg-linear-to-r from-sky-400 to-emerald-400 bg-clip-text font-heading text-xl font-extrabold tabular-nums text-transparent sm:text-3xl lg:text-4xl">
+                    {stat.displayValue ??
+                      `${reduceMotion ? stat.value : (values[statIndex] ?? "")}${stat.suffix ?? ""}`}
+                  </dd>
+                  <dt className="mt-1 text-[0.68rem] font-medium leading-tight text-slate-400 sm:text-sm">
                     {stat.label}
-                  </p>
+                  </dt>
                 </div>
               ))}
-            </div>
+            </dl>
           </motion.div>
 
-          {/* RIGHT VISUAL / CAROUSEL FRAME */}
           <motion.div
-            initial={{ scale: 0.95, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="lg:col-span-5 relative"
+            initial={
+              reduceMotion
+                ? { opacity: 0 }
+                : { opacity: 0, transform: "scale(0.96)" }
+            }
+            animate={{ opacity: 1, transform: "scale(1)" }}
+            transition={{ duration: 0.7, delay: reduceMotion ? 0 : 0.12 }}
+            className="relative min-w-0 lg:col-span-5"
+            onMouseEnter={() => setCarouselPaused(true)}
+            onMouseLeave={() => setCarouselPaused(false)}
+            onFocusCapture={() => setCarouselPaused(true)}
+            onBlurCapture={(event) => {
+              if (!event.currentTarget.contains(event.relatedTarget)) {
+                setCarouselPaused(false);
+              }
+            }}
           >
-            {/* Glow backdrop frame */}
-            <div className="absolute -inset-1 bg-linear-to-r from-sky-500 to-amber-500 rounded-3xl blur-xl opacity-30 animate-pulse" />
+            <div className="pointer-events-none absolute -inset-1 rounded-3xl bg-linear-to-r from-sky-500 to-amber-500 opacity-30 blur-xl" />
 
-            <div className="relative rounded-3xl overflow-hidden border border-white/20 shadow-2xl bg-slate-900 aspect-4/3 sm:aspect-16/11 lg:aspect-square">
-              {hero.images.map((img, i) => (
+            <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-white/20 bg-slate-900 shadow-2xl sm:aspect-[16/11] lg:aspect-square">
+              {hero.images.map((image, imageIndex) => (
                 <motion.div
-                  key={img}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: i === index ? 1 : 0 }}
-                  transition={{ duration: 0.9, ease: "easeInOut" }}
+                  key={image}
+                  initial={false}
+                  animate={{ opacity: imageIndex === index ? 1 : 0 }}
+                  transition={{ duration: reduceMotion ? 0.2 : 0.6 }}
                   className="absolute inset-0"
+                  aria-hidden={imageIndex !== index}
                 >
                   <Image
-                    src={img}
-                    alt="Adesa Energy CNG Installation & Conversion"
+                    src={image}
+                    alt={`Adesa Energy CNG operations, view ${imageIndex + 1}`}
                     fill
-                    priority={i === 0}
+                    priority={imageIndex === 0}
                     className="object-cover"
-                    sizes="(max-width: 1024px) 100vw, 45vw"
+                    sizes="(max-width: 1024px) 100vw, 42vw"
                   />
-                  {/* Subtle gradient vignette */}
-                  <div className="absolute inset-0 bg-linear-to-t from-black/75 via-black/20 to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/65 via-black/10 to-transparent" />
                 </motion.div>
               ))}
+            </div>
 
-              {/* Floating Trust Badge */}
-              <div className="absolute bottom-4 inset-x-4 p-4 rounded-2xl bg-slate-950/80 backdrop-blur-md border border-white/15 flex items-center justify-between text-white shadow-lg">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400">
-                    <Zap className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <p className="text-xs font-medium text-slate-300">
-                      Standard CNG Conversion
-                    </p>
-                    <p className="text-sm font-heading font-bold text-white">
-                      Mobile & Station Ready
-                    </p>
-                  </div>
+            <div className="relative mt-3 flex min-w-0 items-center justify-between gap-3 rounded-2xl border border-white/15 bg-slate-950/90 p-3.5 text-white shadow-lg backdrop-blur-md sm:absolute sm:bottom-4 sm:inset-x-4 sm:mt-0 sm:p-4">
+              <div className="flex min-w-0 items-center gap-3">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-emerald-500/40 bg-emerald-500/20 text-emerald-400">
+                  <Zap className="h-5 w-5" aria-hidden="true" />
                 </div>
+                <div className="min-w-0">
+                  <p className="truncate text-[0.68rem] font-medium text-slate-300 sm:text-xs">
+                    Standard CNG conversion
+                  </p>
+                  <p className="truncate font-heading text-xs font-bold text-white sm:text-sm">
+                    Mobile & station ready
+                  </p>
+                </div>
+              </div>
 
-                {/* Carousel dots */}
-                <div className="flex items-center gap-1.5">
-                  {hero.images.map((_, i) => (
-                    <button
-                      key={i}
-                      onClick={() => setIndex(i)}
-                      className={`h-2 rounded-full transition-all cursor-pointer ${
-                        i === index
-                          ? "w-6 bg-burnt-orange"
-                          : "w-2 bg-white/30 hover:bg-white/60"
-                      }`}
-                      aria-label={`Slide ${i + 1}`}
-                    />
-                  ))}
-                </div>
+              <div className="flex shrink-0 items-center gap-1.5" aria-label="Choose carousel slide">
+                {hero.images.map((_, imageIndex) => (
+                  <button
+                    key={imageIndex}
+                    type="button"
+                    onClick={() => setIndex(imageIndex)}
+                    className={`carousel-dot h-3 w-3 rounded-full transition-[transform,background-color] duration-200 ${
+                      imageIndex === index
+                        ? "scale-125 bg-burnt-orange"
+                        : "bg-white/30 hover:bg-white/60"
+                    }`}
+                    aria-label={`Show slide ${imageIndex + 1}`}
+                    aria-current={imageIndex === index ? "true" : undefined}
+                  />
+                ))}
               </div>
             </div>
           </motion.div>
@@ -205,6 +228,4 @@ const HeroSection = ({ onNavClick }) => {
       </div>
     </section>
   );
-};
-
-export default HeroSection;
+}

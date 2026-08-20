@@ -71,13 +71,13 @@ export default function BlogLayout({ children }) {
   };
 
   return (
-    <main role="main">
+    <div>
       <h1 className="sr-only">Adesa Energy Blog — CNG Insights, News &amp; Guides</h1>
       <section>{children}</section>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify([breadcrumbSchema, blogSchema]) }}
       />
-    </main>
+    </div>
   );
 }

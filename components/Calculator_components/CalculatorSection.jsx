@@ -2,22 +2,14 @@
 
 import { motion } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
-import dynamic from "next/dynamic";
 import { siteConfig } from "@/config/site";
 import { formatCurrency } from "./utils";
 import { useRouter } from "next/navigation";
+import CalculatorHeader from "./CalculatorHeader";
+import CalculatorForm from "./CalculatorForm";
+import CalculatorResults from "./CalculatorResults";
+import PriceCards from "./PriceCards";
 
-// Dynamic imports
-const CalculatorHeader = dynamic(() => import("./CalculatorHeader"), {
-  ssr: false,
-});
-const CalculatorForm = dynamic(() => import("./CalculatorForm"), {
-  ssr: false,
-});
-const CalculatorResults = dynamic(() => import("./CalculatorResults"), {
-  ssr: false,
-});
-const PriceCards = dynamic(() => import("./PriceCards"), { ssr: false });
 
 const CalculatorSection = () => {
   const [calculatorResult, setCalculatorResult] = useState(null);

@@ -2,7 +2,6 @@ import { Plus_Jakarta_Sans, Space_Grotesk } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
-import Providers from "./provider";
 import AppShell from "./appshell";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -36,8 +35,13 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className="dark" suppressHydrationWarning>
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{if(sessionStorage.getItem('adesa-energy-intro-seen'))document.documentElement.classList.add('adesa-intro-seen')}catch(e){}`,
+          }}
+        />
         {/* Meta Pixel */}
         <Script id="meta-pixel" strategy="afterInteractive">
           {`
@@ -64,8 +68,11 @@ export default function RootLayout({ children }) {
       </head>
 
       <body
-        className={`${jakarta.variable} ${spaceGrotesk.variable} font-sans antialiased bg-background text-foreground transition-colors selection:bg-burnt-orange selection:text-white`}
+        className={`${jakarta.variable} ${spaceGrotesk.variable} overflow-x-clip bg-background font-sans text-foreground antialiased transition-colors selection:bg-burnt-orange selection:text-white`}
       >
+        <a href="#main-content" className="skip-link">
+          Skip to main content
+        </a>
         {/* Meta Pixel NoScript */}
         <noscript>
           <Image
@@ -82,9 +89,7 @@ export default function RootLayout({ children }) {
           enableSystem={false}
           defaultTheme="dark"
         >
-          <Providers>
-            <AppShell>{children}</AppShell>
-          </Providers>
+          <AppShell>{children}</AppShell>
         </ThemeProvider>
 
         <Analytics />

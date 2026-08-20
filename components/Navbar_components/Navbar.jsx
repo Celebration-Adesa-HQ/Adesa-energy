@@ -21,7 +21,7 @@ export default function Navbar({ activeSection, handleNavClick }) {
   }, []);
 
   return (
-    <header className="fixed top-0 inset-x-0 z-50 flex justify-center px-4 sm:px-6 pt-3 sm:pt-4 pointer-events-none">
+    <header className="pointer-events-none fixed inset-x-0 top-0 z-50 flex justify-center px-3 pt-3 sm:px-6 sm:pt-4">
       <nav
         className={`pointer-events-auto w-full max-w-7xl h-16 sm:h-18 px-4 sm:px-6 rounded-2xl flex items-center justify-between transition-all duration-300 ${
           scrolled
@@ -106,7 +106,7 @@ export default function Navbar({ activeSection, handleNavClick }) {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 28, stiffness: 280 }}
-              className="fixed top-0 right-0 h-full w-full max-w-xs bg-white dark:bg-[#0B132B] shadow-2xl z-50 pointer-events-auto p-6 flex flex-col justify-between border-l border-slate-200 dark:border-white/10 lg:hidden overflow-y-auto"
+              className="mobile-nav-drawer pointer-events-auto fixed right-0 top-0 z-50 flex h-[100dvh] w-full max-w-xs flex-col justify-between overflow-y-auto border-l border-slate-200 bg-white p-5 shadow-2xl dark:border-white/10 dark:bg-[#0B132B] sm:p-6 lg:hidden"
             >
               <div>
                 <div className="flex items-center justify-between pb-6 border-b border-slate-200 dark:border-white/10">

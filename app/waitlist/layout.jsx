@@ -65,7 +65,7 @@ export default function ContactLayout({ children }) {
   };
 
   return (
-    <main role="main">
+    <div>
       <h1 className="sr-only">Join the Adesa Energy Waitlist</h1>
       <section>{children}</section>
       <script
@@ -74,6 +74,6 @@ export default function ContactLayout({ children }) {
           __html: JSON.stringify([breadcrumbSchema, contactPageSchema]),
         }}
       />
-    </main>
+    </div>
   );
 }

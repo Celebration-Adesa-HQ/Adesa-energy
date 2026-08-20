@@ -35,13 +35,13 @@ export default function TermsLayout({ children }) {
   };
 
   return (
-    <main role="main">
+    <div>
       <h1 className="sr-only">Terms & Conditions — Adesa Energy</h1>
       <section>{children}</section>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
-    </main>
+    </div>
   );
 }
