@@ -20,6 +20,7 @@ const sections = [
     content: [
       "**Personal Identification Information:** Name, email address, phone number, and address when you sign up for our waitlist, request a quote, or contact us.",
       "**Vehicle Information:** Vehicle make, model, year, and fuel type when you request CNG conversion services.",
+      "**Career Application Information:** The contact details, application note, and CV you send directly from your email account when applying for a role or joining our talent network.",
       "**Usage Data:** Pages visited, time spent on site, browser type, device type, and IP address — collected automatically via cookies and analytics tools.",
       "**Communications:** Any messages you send us through contact forms, email, or social media.",
     ],
@@ -34,6 +35,7 @@ const sections = [
       "To improve our website, services, and customer experience.",
       "To comply with legal obligations and protect against fraud.",
       "To analyze usage trends and measure the effectiveness of our marketing campaigns.",
+      "To review career applications, communicate recruitment updates, and consider candidates for current or future opportunities.",
     ],
   },
   {
@@ -44,6 +46,7 @@ const sections = [
       "We restrict access to your personal data to authorized employees and contractors who need it to provide our services.",
       "While we strive to protect your data, no method of transmission over the Internet is 100% secure. We cannot guarantee absolute security.",
       "In the event of a data breach, we will notify affected users and relevant authorities as required by applicable law.",
+      "Career CVs are not uploaded to or stored in the website. They are attached by applicants in their own mail app and retained in Adesa Energy's recruitment mailbox according to our recruitment needs and legal obligations.",
     ],
   },
   {
@@ -76,6 +79,7 @@ const sections = [
       "These providers are bound by data processing agreements and are not permitted to use your data for their own marketing purposes.",
       "We do not sell, trade, or rent your personal information to third parties.",
       "Our website may contain links to third-party websites. We are not responsible for their privacy practices.",
+      "Career applicants use their chosen email provider to send applications directly to Adesa Energy's Zoho Mail recruitment mailbox, where an automatic acknowledgement may be configured.",
     ],
   },
 ];
@@ -110,7 +114,7 @@ export default function PrivacyPolicyPage() {
           </motion.h1>
           <motion.p variants={fadeUp} className="text-gray-400 text-lg">
             Last updated:{" "}
-            <span className="text-[#F37621]">August 14, 2026</span>
+            <span className="text-[#F37621]">August 22, 2026</span>
           </motion.p>
           <motion.p
             variants={fadeUp}

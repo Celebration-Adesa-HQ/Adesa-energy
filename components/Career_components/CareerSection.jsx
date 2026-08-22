@@ -245,7 +245,7 @@ export default function CareerSection() {
           <div className="mt-12 border-t border-slate-200 dark:border-white/10">
             {jobs.jobListings.map((job, index) => (
               <Reveal key={job.id} delay={index * 0.05}>
-                <article className="group grid gap-6 border-b border-slate-200 py-8 transition-colors hover:bg-slate-100/70 dark:border-white/10 dark:hover:bg-white/[0.025] md:grid-cols-[1.1fr_1fr_auto] md:items-center md:px-4">
+                <article id={job.slug} className="group grid scroll-mt-28 gap-6 border-b border-slate-200 py-8 transition-colors hover:bg-slate-100/70 dark:border-white/10 dark:hover:bg-white/[0.025] md:grid-cols-[1.1fr_1fr_auto] md:items-center md:px-4">
                   <div>
                     <p className="text-xs font-bold uppercase tracking-[0.16em] text-burnt-orange">
                       {job.department}
@@ -265,14 +265,14 @@ export default function CareerSection() {
                       {job.type}
                     </span>
                   </div>
-                  <Link
+                  <a
                     href={job.href}
                     className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-slate-300 px-5 py-2.5 font-semibold transition group-hover:border-burnt-orange group-hover:bg-burnt-orange group-hover:text-white dark:border-white/20"
                     aria-label={`Apply for ${job.title}`}
                   >
                     Apply for this role
                     <ArrowRight className="h-4 w-4" />
-                  </Link>
+                  </a>
                 </article>
               </Reveal>
             ))}
@@ -289,13 +289,13 @@ export default function CareerSection() {
             <p className="mt-4 leading-7 text-orange-50">{cta.subtitle}</p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
-            <Link
+            <a
               href={cta.primaryCTA.href}
               className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-white px-6 py-3 font-bold text-[#9a430f] transition hover:-translate-y-0.5 hover:bg-orange-50"
             >
               {cta.primaryCTA.label}
               <ArrowRight className="h-4 w-4" />
-            </Link>
+            </a>
             <Link
               href={cta.secondaryCTA.href}
               className="inline-flex min-h-12 items-center justify-center rounded-xl border border-white/50 px-6 py-3 font-semibold text-white transition hover:bg-white/10"

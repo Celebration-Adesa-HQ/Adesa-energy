@@ -7,6 +7,37 @@ import {
   CheckCircle,
 } from "lucide-react";
 
+const CAREERS_EMAIL = "career@adesahq.com";
+
+function createCareerMailHref({ title, general = false }) {
+  const subject = general
+    ? "Adesa Energy General Application — [Your Desired Role]"
+    : `Adesa Energy Career Application — ${title}`;
+  const body = [
+    "Hello Adesa Energy Careers Team,",
+    "",
+    general
+      ? "I would like to submit a general application for future opportunities at Adesa Energy."
+      : `I would like to apply for the ${title} position at Adesa Energy.`,
+    "",
+    "Full name:",
+    "Phone number:",
+    "Current location:",
+    ...(general ? ["Desired role:", "Area of interest:"] : []),
+    "LinkedIn or portfolio (optional):",
+    "",
+    general ? "How I could contribute:" : "Application note:",
+    "",
+    "",
+    "I have attached my CV for your review.",
+    "",
+    "Kind regards,",
+    "[Your full name]",
+  ].join("\n");
+
+  return `mailto:${CAREERS_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+
 export const siteConfig = {
   name: "Adesa Energy",
   description:
@@ -636,6 +667,7 @@ export const siteConfig = {
 
   // Careers section content
   careers: {
+    email: CAREERS_EMAIL,
     hero: {
       eyebrow: "Build what moves Nigeria",
       title: "Do work that powers real progress.",
@@ -682,7 +714,7 @@ export const siteConfig = {
           location: "Lagos, Nigeria",
           description:
             "Develop and maintain energy management software solutions",
-          href: "/careers/apply/software-engineer",
+          href: createCareerMailHref({ title: "Software Engineer" }),
           datePosted: "2026-05-01",
           validThrough: "2026-12-31",
         },
@@ -694,7 +726,7 @@ export const siteConfig = {
           type: "Full-Time",
           location: "Remote",
           description: "Analyze and optimize carbon reduction initiatives",
-          href: "/careers/apply/sustainability-analyst",
+          href: createCareerMailHref({ title: "Sustainability Analyst" }),
           datePosted: "2026-05-01",
           validThrough: "2026-12-31",
         },
@@ -707,7 +739,7 @@ export const siteConfig = {
           location: "Lagos, Nigeria",
           description:
             "Design user-centric interfaces for our energy solutions",
-          href: "/careers/apply/product-designer",
+          href: createCareerMailHref({ title: "Product Designer" }),
           datePosted: "2026-05-01",
           validThrough: "2026-12-31",
         },
@@ -723,7 +755,7 @@ export const siteConfig = {
       location: "Nigeria",
       description:
         "Tell us where your experience could contribute to Adesa Energy's mission and future growth.",
-      href: "/careers/apply/general-application",
+      href: createCareerMailHref({ title: "General Application", general: true }),
     },
     benefits: [
       {
@@ -790,7 +822,7 @@ export const siteConfig = {
         "Exceptional people do not always fit neatly into an open requisition. Tell us where you can make a difference.",
       primaryCTA: {
         label: "Submit a general application",
-        href: "/careers/apply/general-application",
+        href: createCareerMailHref({ title: "General Application", general: true }),
       },
       secondaryCTA: { label: "Meet our leadership", href: "/team" },
     },

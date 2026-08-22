@@ -67,7 +67,7 @@ export default function CareerLayout({ children }) {
     },
     "datePosted": job.datePosted,
     "validThrough": job.validThrough,
-    "url": `${siteConfig.url}${job.href}`,
+    "url": `${siteConfig.url}/careers#${job.slug}`,
     "directApply": true,
   }));
 
