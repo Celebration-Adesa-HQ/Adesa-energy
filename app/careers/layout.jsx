@@ -65,24 +65,15 @@ export default function CareerLayout({ children }) {
       "@type": "Country",
       "name": "Nigeria",
     },
-    "datePosted": "2026-05-01",
-    "validThrough": "2026-12-31",
+    "datePosted": job.datePosted,
+    "validThrough": job.validThrough,
     "url": `${siteConfig.url}/careers`,
     "directApply": true,
-    "baseSalary": {
-      "@type": "MonetaryAmount",
-      "currency": "NGN",
-      "value": {
-        "@type": "QuantitativeValue",
-        "unitText": "MONTH",
-      },
-    },
   }));
 
   return (
     <div>
-      <h1 className="sr-only">Careers at Adesa Energy</h1>
-      <section>{children}</section>
+      {children}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

@@ -54,9 +54,15 @@ export default async function sitemap() {
     },
     {
       url: `${baseUrl}/careers`,
-      lastModified: new Date("2026-05-01"),
+      lastModified: new Date("2026-08-21"),
       changeFrequency: "monthly",
       priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/investors`,
+      lastModified: new Date("2026-08-21"),
+      changeFrequency: "monthly",
+      priority: 0.8,
     },
     {
       url: `${baseUrl}/privacy-policy`,

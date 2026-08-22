@@ -36,6 +36,8 @@ export const siteConfig = {
     { id: "resources", label: "Resources", path: "/resources" },
     { id: "blog", label: "Blog", path: "/blog" },
     { id: "solutions", label: "Solutions", path: "/solutions" },
+    { id: "careers", label: "Careers", path: "/careers" },
+    { id: "investors", label: "Investors", path: "/investors" },
   ],
 
   // Hero section content
@@ -635,40 +637,33 @@ export const siteConfig = {
   // Careers section content
   careers: {
     hero: {
-      title: "Power the Future with Your Career",
+      eyebrow: "Build what moves Nigeria",
+      title: "Do work that powers real progress.",
       subtitle:
-        "Join our mission to accelerate the global transition to sustainable energy through innovation and collaboration",
-      primaryCTA: { label: "Explore Open Positions", href: "#jobs" },
-      secondaryCTA: { label: "Our Sustainability Promise", href: "#about" },
-      backgroundGradient: "from-[#0d3b66] to-[#1a5f7a]",
-      textColor: "text-white",
-      buttonColors: {
-        primary: "bg-[#ffd166] text-[#0d3b66]",
-        secondary: "bg-white/10 text-white border border-white",
-      },
+        "Join the team making cleaner, more affordable mobility practical for businesses and drivers across Nigeria.",
+      primaryCTA: { label: "Explore open roles", href: "#jobs" },
+      secondaryCTA: { label: "Meet the team", href: "/team" },
+      image: "/blog-cng-conversion-guide.webp",
     },
     about: {
-      title: "Why Adesa Energy?",
+      title: "The energy transition needs builders.",
       subtitle:
-        "We're not just building renewable energy solutions—we're building the foundation for a sustainable future",
+        "At Adesa Energy, your work connects directly to lower operating costs, cleaner transport, and infrastructure that serves everyday journeys.",
       features: [
         {
-          icon: CheckCircle,
-          title: "Purpose-Driven Work",
+          title: "Visible impact",
           description:
-            "Every project directly contributes to reducing global carbon emissions",
+            "See ideas move from planning into vehicles, fleets, and communities.",
         },
         {
-          icon: CheckCircle,
-          title: "Innovation First",
+          title: "Practical innovation",
           description:
-            "Access cutting-edge tools and dedicated R&D resources to push boundaries",
+            "Solve operational challenges with technology, engineering, and disciplined execution.",
         },
         {
-          icon: CheckCircle,
-          title: "Global Community",
+          title: "Shared ownership",
           description:
-            "Collaborate with experts across 15 countries on solutions that scale",
+            "Work closely across functions and take responsibility for outcomes, not just tasks.",
         },
       ],
     },
@@ -686,7 +681,9 @@ export const siteConfig = {
           location: "Lagos, Nigeria",
           description:
             "Develop and maintain energy management software solutions",
-          href: "mailto:career@adesahq.com?subject=Software Engineer",
+          href: "mailto:career@adesahq.com?subject=Software Engineer Application",
+          datePosted: "2026-05-01",
+          validThrough: "2026-12-31",
         },
         {
           id: 2,
@@ -695,7 +692,9 @@ export const siteConfig = {
           type: "Full-Time",
           location: "Remote",
           description: "Analyze and optimize carbon reduction initiatives",
-          href: "mailto:career@adesahq.com?subject=Sustainability Analyst",
+          href: "mailto:career@adesahq.com?subject=Sustainability Analyst Application",
+          datePosted: "2026-05-01",
+          validThrough: "2026-12-31",
         },
         {
           id: 3,
@@ -705,7 +704,9 @@ export const siteConfig = {
           location: "Lagos, Nigeria",
           description:
             "Design user-centric interfaces for our energy solutions",
-          href: "mailto:career@adesahq.com?subject=Product Designer",
+          href: "mailto:career@adesahq.com?subject=Product Designer Application",
+          datePosted: "2026-05-01",
+          validThrough: "2026-12-31",
         },
         // Add more jobs as needed
       ],
@@ -733,33 +734,126 @@ export const siteConfig = {
         description: "Collaborative activities to strengthen team culture",
       },
     ],
-    culture: [
+    principles: [
       {
-        id: 1,
-        quote: "Adesa Energy empowers me to innovate and grow every day.",
-        author: "Jane Smith",
-        role: "Product Designer",
+        title: "Start with the customer",
+        description: "Understand the operational reality before designing the solution.",
       },
       {
-        id: 2,
-        quote:
-          "I love being part of a team that's changing the energy landscape.",
-        author: "Michael Brown",
-        role: "Software Engineer",
+        title: "Build with discipline",
+        description: "Move quickly, document decisions, and never compromise on safety.",
       },
-      // Add more testimonials as needed
+      {
+        title: "Learn in the open",
+        description: "Share context early, welcome scrutiny, and improve as one team.",
+      },
+      {
+        title: "Own the outcome",
+        description: "Take responsibility from the first question through delivery.",
+      },
+    ],
+    hiringSteps: [
+      {
+        title: "Apply",
+        description: "Send your CV and a short note about the work you want to do.",
+      },
+      {
+        title: "Conversation",
+        description: "Meet the team and explore mutual fit, motivation, and expectations.",
+      },
+      {
+        title: "Practical review",
+        description: "Discuss relevant work or complete a focused role exercise.",
+      },
+      {
+        title: "Decision",
+        description: "Receive a clear outcome and next steps from our talent team.",
+      },
     ],
     cta: {
-      title: "Ready to Power Your Career?",
+      title: "Your role is not listed yet?",
       subtitle:
-        "Join a team that's transforming how the world uses energy. We can't wait to build the future with you.",
+        "Exceptional people do not always fit neatly into an open requisition. Tell us where you can make a difference.",
       primaryCTA: {
-        label: "Apply Now",
-        href: "mailto:careers@adesaenergy.com?subject=Job Application",
+        label: "Join our talent network",
+        href: "mailto:career@adesahq.com?subject=General Career Application",
       },
-      secondaryCTA: { label: "Waitlist Our Talent Team", href: "/waitlist" },
-      backgroundGradient: "from-[#0d3b66] to-[#1a5f7a]",
-      textColor: "text-white",
+      secondaryCTA: { label: "Meet our leadership", href: "/team" },
+    },
+  },
+
+  investors: {
+    hero: {
+      eyebrow: "Investor overview",
+      title: "Invest in Nigeria's cleaner mobility transition.",
+      description:
+        "Adesa Energy is building the service infrastructure that helps fleets and drivers adopt CNG with less friction, lower operating costs, and less downtime.",
+      primaryCTA: {
+        label: "Talk to our investor team",
+        href: "mailto:info@adesahq.com?subject=Investor Inquiry",
+      },
+      secondaryCTA: { label: "See how we operate", href: "/solutions" },
+      image: "/blog-cng-adoption.webp",
+    },
+    traction: [
+      { value: "Up to 50%", label: "fuel-cost savings for customers" },
+      { value: "500+", label: "vehicles converted" },
+      { value: "3", label: "active Nigerian locations" },
+      { value: "24/7", label: "customer support" },
+    ],
+    market: {
+      title: "A costly mobility problem is creating demand for a practical alternative.",
+      description:
+        "Fuel-price pressure affects household budgets, fleet margins, and the cost of moving goods. CNG can lower operating costs, but adoption depends on conversion access, refueling availability, and reliable support.",
+      points: [
+        "Large addressable base of petrol and diesel vehicles",
+        "Clear economic incentive for high-mileage fleets and drivers",
+        "Growing public and commercial attention around alternative fuels",
+      ],
+    },
+    advantages: [
+      {
+        title: "Mobile by design",
+        description: "Conversion services move closer to customers, reducing disruption and avoidable downtime.",
+      },
+      {
+        title: "Conversion plus refueling",
+        description: "A connected service model supports customers beyond the initial vehicle conversion.",
+      },
+      {
+        title: "Fleet and individual demand",
+        description: "The model serves commercial operators while remaining accessible to everyday drivers.",
+      },
+      {
+        title: "Local operating knowledge",
+        description: "Execution is shaped around Nigerian routes, customer behavior, and infrastructure realities.",
+      },
+    ],
+    scaleSteps: [
+      "Deploy mobile units",
+      "Serve concentrated fleet demand",
+      "Build local adoption",
+      "Expand refueling coverage",
+      "Enter the next city",
+    ],
+    whyNow: [
+      "Fuel-cost pressure makes the customer value proposition immediate.",
+      "Interest in alternative mobility fuels is moving into practical adoption.",
+      "Adesa has an operating foundation ready for disciplined expansion.",
+    ],
+    capitalUses: [
+      "Expand the mobile service fleet",
+      "Increase conversion capacity",
+      "Strengthen refueling infrastructure",
+      "Improve customer and operations technology",
+      "Launch into additional Nigerian markets",
+    ],
+    cta: {
+      title: "Build the next chapter of cleaner mobility with us.",
+      description:
+        "Detailed commercial information is available through direct, confidential engagement with the Adesa Energy leadership team.",
+      href: "mailto:info@adesahq.com?subject=Investor Inquiry",
+      label: "Request an investor conversation",
     },
   },
 
@@ -910,6 +1004,8 @@ export const siteConfig = {
       { label: "Resources", type: "route", path: "/resources" },
       { label: "Blog", type: "route", path: "/blog" },
       { label: "Our Team", type: "route", path: "/team" },
+      { label: "Careers", type: "route", path: "/careers" },
+      { label: "Investors", type: "route", path: "/investors" },
       { label: "Waitlist", type: "route", path: "/waitlist" },
     ],
     services: [
