@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import NewsletterSection from "@/components/Sections/NewsletterSection";
 import TestimonialsSection from "@/components/Sections/TestimonalsSection";
 import FirstVisitIntro from "@/components/FirstVisitIntro";
+import WhatsAppSupport from "@/components/WhatsAppSupport";
 
 export default function AppShell({ children }) {
   const pathname = usePathname();
@@ -33,6 +34,7 @@ export default function AppShell({ children }) {
         className="w-full px-4 sm:px-8 lg:px-16 py-12 sm:py-16 lg:py-20 flex flex-col items-center justify-center"
       />
       <Footer onNavClick={handleNavClick} />
+      <WhatsAppSupport />
     </div>
   );
 }

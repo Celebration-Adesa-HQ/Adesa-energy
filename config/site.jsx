@@ -675,41 +675,55 @@ export const siteConfig = {
       jobListings: [
         {
           id: 1,
+          slug: "software-engineer",
           title: "Software Engineer",
           department: "Engineering",
           type: "Full-Time",
           location: "Lagos, Nigeria",
           description:
             "Develop and maintain energy management software solutions",
-          href: "mailto:career@adesahq.com?subject=Software Engineer Application",
+          href: "/careers/apply/software-engineer",
           datePosted: "2026-05-01",
           validThrough: "2026-12-31",
         },
         {
           id: 2,
+          slug: "sustainability-analyst",
           title: "Sustainability Analyst",
           department: "Sustainability",
           type: "Full-Time",
           location: "Remote",
           description: "Analyze and optimize carbon reduction initiatives",
-          href: "mailto:career@adesahq.com?subject=Sustainability Analyst Application",
+          href: "/careers/apply/sustainability-analyst",
           datePosted: "2026-05-01",
           validThrough: "2026-12-31",
         },
         {
           id: 3,
+          slug: "product-designer",
           title: "Product Designer",
           department: "Design",
           type: "Full-Time",
           location: "Lagos, Nigeria",
           description:
             "Design user-centric interfaces for our energy solutions",
-          href: "mailto:career@adesahq.com?subject=Product Designer Application",
+          href: "/careers/apply/product-designer",
           datePosted: "2026-05-01",
           validThrough: "2026-12-31",
         },
         // Add more jobs as needed
       ],
+    },
+    generalApplication: {
+      id: "general-application",
+      slug: "general-application",
+      title: "General Application",
+      department: "Talent Network",
+      type: "Future Opportunities",
+      location: "Nigeria",
+      description:
+        "Tell us where your experience could contribute to Adesa Energy's mission and future growth.",
+      href: "/careers/apply/general-application",
     },
     benefits: [
       {
@@ -775,8 +789,8 @@ export const siteConfig = {
       subtitle:
         "Exceptional people do not always fit neatly into an open requisition. Tell us where you can make a difference.",
       primaryCTA: {
-        label: "Join our talent network",
-        href: "mailto:career@adesahq.com?subject=General Career Application",
+        label: "Submit a general application",
+        href: "/careers/apply/general-application",
       },
       secondaryCTA: { label: "Meet our leadership", href: "/team" },
     },

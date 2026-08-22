@@ -265,14 +265,14 @@ export default function CareerSection() {
                       {job.type}
                     </span>
                   </div>
-                  <a
+                  <Link
                     href={job.href}
                     className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-slate-300 px-5 py-2.5 font-semibold transition group-hover:border-burnt-orange group-hover:bg-burnt-orange group-hover:text-white dark:border-white/20"
                     aria-label={`Apply for ${job.title}`}
                   >
-                    Apply
+                    Apply for this role
                     <ArrowRight className="h-4 w-4" />
-                  </a>
+                  </Link>
                 </article>
               </Reveal>
             ))}
@@ -289,13 +289,13 @@ export default function CareerSection() {
             <p className="mt-4 leading-7 text-orange-50">{cta.subtitle}</p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
-            <a
+            <Link
               href={cta.primaryCTA.href}
               className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-white px-6 py-3 font-bold text-[#9a430f] transition hover:-translate-y-0.5 hover:bg-orange-50"
             >
               {cta.primaryCTA.label}
               <ArrowRight className="h-4 w-4" />
-            </a>
+            </Link>
             <Link
               href={cta.secondaryCTA.href}
               className="inline-flex min-h-12 items-center justify-center rounded-xl border border-white/50 px-6 py-3 font-semibold text-white transition hover:bg-white/10"
