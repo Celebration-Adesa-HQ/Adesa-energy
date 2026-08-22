@@ -40,36 +40,52 @@ export default function CareerLayout({ children }) {
     ],
   };
 
-  const jobPostings = siteConfig.careers.jobs.jobListings.map((job) => ({
-    "@context": "https://schema.org",
-    "@type": "JobPosting",
-    "title": job.title,
-    "description": job.description,
-    "hiringOrganization": {
-      "@type": "Organization",
-      "name": "Adesa Energy",
-      "sameAs": siteConfig.url,
-      "logo": `${siteConfig.url}/adesa-energy.png`,
-    },
-    "jobLocation": {
-      "@type": "Place",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": job.location.includes("Remote") ? undefined : job.location,
-        "addressCountry": "NG",
+  const jobPostings = siteConfig.careers.jobs.jobListings.map((job) => {
+    const isRemote = job.location.includes("Remote");
+
+    return {
+      "@context": "https://schema.org",
+      "@type": "JobPosting",
+      "title": job.title,
+      "description": job.description,
+      "identifier": {
+        "@type": "PropertyValue",
+        "name": "Adesa Energy",
+        "value": `adesa-energy-${job.slug}`,
       },
-    },
-    "employmentType": job.type.toUpperCase().replace("-", "_"),
-    "jobLocationType": job.location.includes("Remote") ? "TELECOMMUTE" : undefined,
-    "applicantLocationRequirements": {
-      "@type": "Country",
-      "name": "Nigeria",
-    },
-    "datePosted": job.datePosted,
-    "validThrough": job.validThrough,
-    "url": `${siteConfig.url}/careers#${job.slug}`,
-    "directApply": true,
-  }));
+      "hiringOrganization": {
+        "@type": "Organization",
+        "name": "Adesa Energy",
+        "sameAs": siteConfig.url,
+        "logo": `${siteConfig.url}/adesa-energy.png`,
+      },
+      ...(!isRemote && {
+        "jobLocation": {
+          "@type": "Place",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "2 Isheri Road, Ojodu Berger",
+            "addressLocality": "Ikeja",
+            "addressRegion": "Lagos State",
+            "postalCode": "101233",
+            "addressCountry": "NG",
+          },
+        },
+      }),
+      ...(isRemote && {
+        "jobLocationType": "TELECOMMUTE",
+        "applicantLocationRequirements": {
+          "@type": "Country",
+          "name": "Nigeria",
+        },
+      }),
+      "employmentType": job.type.toUpperCase().replace("-", "_"),
+      "datePosted": job.datePosted,
+      "validThrough": job.validThrough,
+      "url": `${siteConfig.url}/careers#${job.slug}`,
+      "directApply": true,
+    };
+  });
 
   return (
     <div>
