@@ -1,4 +1,4 @@
-import { constructMetadata } from "@/lib/metadata";
+import { buildWebPageJsonLd, constructMetadata } from "@/lib/metadata";
 import { siteConfig } from "@/config/site";
 
 export const metadata = constructMetadata({
@@ -15,6 +15,12 @@ export const metadata = constructMetadata({
 });
 
 export default function CookiePolicyLayout({ children }) {
+  const pageSchema = buildWebPageJsonLd({
+    path: "/cookie-policy",
+    name: "Cookie Policy — Adesa Energy",
+    description:
+      "How Adesa Energy uses cookies and how website visitors can manage their preferences.",
+  });
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -36,11 +42,10 @@ export default function CookiePolicyLayout({ children }) {
 
   return (
     <div>
-      <h1 className="sr-only">Cookie Policy — Adesa Energy</h1>
       <section>{children}</section>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([breadcrumbSchema, pageSchema]) }}
       />
     </div>
   );

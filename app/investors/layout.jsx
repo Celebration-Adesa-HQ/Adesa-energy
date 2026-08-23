@@ -1,4 +1,4 @@
-import { constructMetadata } from "@/lib/metadata";
+import { buildWebPageJsonLd, constructMetadata } from "@/lib/metadata";
 import { siteConfig } from "@/config/site";
 
 export const metadata = constructMetadata({
@@ -17,6 +17,12 @@ export const metadata = constructMetadata({
 });
 
 export default function InvestorsLayout({ children }) {
+  const pageSchema = buildWebPageJsonLd({
+    path: "/investors",
+    name: "Investors — Adesa Energy",
+    description:
+      "Adesa Energy is building a scalable mobile CNG conversion and refueling network for Nigeria's cleaner mobility transition.",
+  });
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -41,7 +47,7 @@ export default function InvestorsLayout({ children }) {
       {children}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([breadcrumbSchema, pageSchema]) }}
       />
     </>
   );

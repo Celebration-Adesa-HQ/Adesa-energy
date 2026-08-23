@@ -1,24 +1,21 @@
+import { siteConfig } from "@/config/site";
+
 export default function robots() {
   return {
     rules: [
       {
-        userAgent: "Googlebot",
-        allow: "/",
-        disallow: ["/api/", "/_next/", "/private/"],
-      },
-      {
-        userAgent: "Bingbot",
-        allow: "/",
-        disallow: ["/api/", "/_next/", "/private/"],
-      },
-      {
         userAgent: "*",
         allow: "/",
-        disallow: ["/api/", "/_next/", "/private/"],
-        crawlDelay: 10,
+        disallow: "/api/",
       },
+      { userAgent: "Googlebot", allow: "/", disallow: "/api/" },
+      { userAgent: "Bingbot", allow: "/", disallow: "/api/" },
+      { userAgent: "Applebot", allow: "/", disallow: "/api/" },
+      { userAgent: "DuckDuckBot", allow: "/", disallow: "/api/" },
+      { userAgent: "OAI-SearchBot", allow: "/", disallow: "/api/" },
+      { userAgent: "PerplexityBot", allow: "/", disallow: "/api/" },
     ],
-    sitemap: "https://www.adesaenergy.com/sitemap.xml",
-    host: "https://www.adesaenergy.com",
+    sitemap: `${siteConfig.url}/sitemap.xml`,
+    host: siteConfig.url,
   };
 }

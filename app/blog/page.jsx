@@ -3,15 +3,6 @@ import LiveNewsSection from "@/components/Sections/LiveNewsSection";
 import { getPosts } from "@/lib/posts";
 import { getNigeriaEnergyNews } from "@/lib/news";
 
-export const metadata = {
-  title: "Adesa Energy Blog",
-  description:
-    "Insights on CNG conversion, fuel savings, and transport efficiency.",
-  alternates: {
-    canonical: "https://www.adesaenergy.com/blog",
-  },
-};
-
 export default async function BlogPage({ searchParams }) {
   const resolvedSearchParams = await searchParams;
   const page = Number(resolvedSearchParams?.page || 1);
@@ -24,6 +15,9 @@ export default async function BlogPage({ searchParams }) {
 
   return (
     <div className="min-w-0">
+      <h1 className="sr-only">
+        Adesa Energy Blog — CNG Insights, News &amp; Guides
+      </h1>
       <LiveNewsSection
         articles={liveNews.articles}
         unavailable={liveNews.unavailable}

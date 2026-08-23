@@ -1,7 +1,7 @@
 import { siteConfig } from "@/config/site";
 
 export default async function sitemap() {
-  const baseUrl = "https://www.adesaenergy.com";
+  const baseUrl = siteConfig.url;
 
   const staticPages = [
     {
@@ -91,19 +91,16 @@ export default async function sitemap() {
   ];
 
   const blogPosts = siteConfig.blog.posts.map((post) => {
-    let lastMod = new Date();
-    try {
-      const parsed = new Date(post.date);
-      if (!isNaN(parsed.getTime())) {
-        lastMod = parsed;
-      }
-    } catch (e) {}
+    const parsedDate = new Date(post.date);
 
     return {
       url: `${baseUrl}/blog/${post.slug}`,
-      lastModified: lastMod,
-      changeFrequency: "weekly",
+      ...(Number.isNaN(parsedDate.getTime())
+        ? {}
+        : { lastModified: parsedDate }),
+      changeFrequency: "monthly",
       priority: 0.7,
+      images: post.image ? [new URL(post.image, baseUrl).toString()] : undefined,
     };
   });
 

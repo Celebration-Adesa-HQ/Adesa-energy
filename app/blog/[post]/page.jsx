@@ -1,6 +1,11 @@
 import { siteConfig } from "@/config/site";
 import BlogDetailClient from "./_components/BlogDetailClient";
 import { notFound } from "next/navigation";
+import { absoluteUrl, constructMetadata } from "@/lib/metadata";
+
+export function generateStaticParams() {
+  return siteConfig.blog.posts.map((post) => ({ post: post.slug }));
+}
 
 // Dynamic metadata per post
 export async function generateMetadata({ params }) {
@@ -8,25 +13,30 @@ export async function generateMetadata({ params }) {
   const currentPost = siteConfig?.blog.posts.find((p) => p.slug === post);
 
   if (!currentPost) {
-    return {
+    return constructMetadata({
       title: "Post Not Found — Adesa Energy Blog",
       description: "The blog post you are looking for does not exist. Browse all CNG articles on the Adesa Energy blog.",
-      robots: { index: false, follow: false },
-      alternates: {
-        canonical: "https://www.adesaenergy.com/blog",
-      },
-    };
+      path: `/blog/${post}`,
+      noIndex: true,
+    });
   }
 
   const ogImageUrl =
     currentPost.ogImage || currentPost.image || "/adesa-energy.png";
-  const absoluteOgImageUrl = ogImageUrl.startsWith("/")
-    ? `${siteConfig.url.replace(/\/$/, "")}${ogImageUrl}`
-    : ogImageUrl;
+  const publishedTime = new Date(currentPost.date);
 
-  return {
+  return constructMetadata({
     title: currentPost.title,
     description: currentPost.excerpt,
+    path: `/blog/${currentPost.slug}`,
+    image: ogImageUrl,
+    type: "article",
+    datePublished: Number.isNaN(publishedTime.getTime())
+      ? undefined
+      : publishedTime.toISOString(),
+    dateModified: Number.isNaN(publishedTime.getTime())
+      ? undefined
+      : publishedTime.toISOString(),
     keywords: [
       "CNG Nigeria",
       "compressed natural gas",
@@ -35,44 +45,7 @@ export async function generateMetadata({ params }) {
       currentPost.tag,
       ...(currentPost.tags || []),
     ].filter(Boolean),
-    authors: [{ name: "Adesa Energy", url: siteConfig.url }],
-    creator: "Adesa Energy",
-    alternates: {
-      canonical: `${siteConfig.url}/blog/${currentPost.slug}`,
-    },
-    openGraph: {
-      title: currentPost.title,
-      description: currentPost.excerpt,
-      url: `${siteConfig.url}/blog/${currentPost.slug}`,
-      type: "article",
-      publishedTime: (() => {
-        try {
-          const d = new Date(currentPost.date);
-          return isNaN(d.getTime()) ? undefined : d.toISOString();
-        } catch {
-          return undefined;
-        }
-      })(),
-      authors: [`${siteConfig.url}`],
-      tags: ["CNG", "Nigeria", "fuel savings", currentPost.tag].filter(Boolean),
-      images: [
-        {
-          url: absoluteOgImageUrl,
-          width: 1200,
-          height: 630,
-          alt: `${currentPost.title} — Adesa Energy Blog`,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: currentPost.title,
-      description: currentPost.excerpt,
-      images: [absoluteOgImageUrl],
-      creator: "@adesaenergy",
-      site: "@adesaenergy",
-    },
-  };
+  });
 }
 
 export default async function BlogDetailPage({ params }) {
@@ -84,18 +57,14 @@ export default async function BlogDetailPage({ params }) {
     return notFound();
   }
 
-  const postImageUrl = currentPost.image
-    ? currentPost.image.startsWith("/")
-      ? `${siteConfig.url.replace(/\/$/, "")}${currentPost.image}`
-      : currentPost.image
-    : `${siteConfig.url.replace(/\/$/, "")}/adesa-energy.png`;
+  const postImageUrl = absoluteUrl(currentPost.image || "/adesa-energy.png");
 
   const parseDate = (dateStr) => {
     try {
       const d = new Date(dateStr);
       if (!isNaN(d.getTime())) return d.toISOString();
     } catch (e) {}
-    return new Date().toISOString();
+    return undefined;
   };
 
   const blogSchema = {
@@ -132,6 +101,11 @@ export default async function BlogDetailPage({ params }) {
       "@id": `${siteConfig.url}/blog/${currentPost.slug}`,
     },
     "articleSection": currentPost.tag || "CNG News",
+    "wordCount": [currentPost.excerpt, ...(currentPost.content || [])]
+      .join(" ")
+      .trim()
+      .split(/\s+/)
+      .filter(Boolean).length,
     "keywords": ["CNG Nigeria", "fuel savings", "Adesa Energy", currentPost.tag].filter(Boolean),
     "inLanguage": "en-NG",
     "isPartOf": {

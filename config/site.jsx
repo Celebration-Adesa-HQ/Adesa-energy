@@ -52,7 +52,7 @@ export const siteConfig = {
   siteName: "Adesa Energy",
   siteDescription:
     "Powering progress, fueling tomorrow. Your trusted partner for CNG conversions and refueling services in Nigeria.",
-  siteUrl: "https://adesaenergy.com",
+  siteUrl: "https://www.adesaenergy.com",
   email: "info@adesahq.com",
   phone: "+2348023087303",
   address: "2 Isheri road, Ojudu-Berger, Lagos",

@@ -1,4 +1,4 @@
-import { constructMetadata } from "@/lib/metadata";
+import { buildWebPageJsonLd, constructMetadata } from "@/lib/metadata";
 import { siteConfig } from "@/config/site";
 
 export const metadata = constructMetadata({
@@ -15,6 +15,12 @@ export const metadata = constructMetadata({
 });
 
 export default function PrivacyPolicyLayout({ children }) {
+  const pageSchema = buildWebPageJsonLd({
+    path: "/privacy-policy",
+    name: "Privacy Policy — Adesa Energy",
+    description:
+      "How Adesa Energy collects, uses, and protects personal information.",
+  });
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -36,11 +42,10 @@ export default function PrivacyPolicyLayout({ children }) {
 
   return (
     <div>
-      <h1 className="sr-only">Privacy Policy — Adesa Energy</h1>
       <section>{children}</section>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([breadcrumbSchema, pageSchema]) }}
       />
     </div>
   );

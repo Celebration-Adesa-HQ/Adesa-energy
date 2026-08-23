@@ -22,7 +22,7 @@ const spaceGrotesk = Space_Grotesk({
   display: "swap",
 });
 
-export const metadata = constructMetadata();
+export const metadata = constructMetadata({ titleTemplate: true });
 
 export const viewport = {
   width: "device-width",
@@ -35,7 +35,7 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
+    <html lang="en-NG" className="dark" suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{
@@ -224,16 +224,7 @@ export default function RootLayout({ children }) {
                 "publisher": {
                   "@id": "https://www.adesaenergy.com/#organization",
                 },
-                "dateModified": "2026-06-01",
                 "inLanguage": "en-NG",
-                "potentialAction": {
-                  "@type": "SearchAction",
-                  "target": {
-                    "@type": "EntryPoint",
-                    "urlTemplate": "https://www.adesaenergy.com/blog?search={search_term_string}",
-                  },
-                  "query-input": "required name=search_term_string",
-                },
               },
             ]),
           }}

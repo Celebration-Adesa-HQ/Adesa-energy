@@ -72,7 +72,6 @@ export default function BlogLayout({ children }) {
 
   return (
     <div>
-      <h1 className="sr-only">Adesa Energy Blog — CNG Insights, News &amp; Guides</h1>
       <section>{children}</section>
       <script
         type="application/ld+json"
