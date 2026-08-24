@@ -111,7 +111,12 @@ export default function RootLayout({ children }) {
                   "width": 400,
                   "height": 400,
                 },
-                "description": "Adesa Energy delivers mobile CNG conversion and on-demand refueling services across Nigeria, helping fleets and individuals reduce fuel costs by up to 50%.",
+                "description": "Adesa Energy (a subsidiary of Adesa HQ) delivers mobile CNG conversion and on-demand refueling services across Nigeria, helping fleets and individuals reduce fuel costs by up to 50%.",
+                "parentOrganization": {
+                  "@type": "Organization",
+                  "name": "Adesa HQ",
+                  "email": "info@adesahq.com"
+                },
                 "foundingDate": "2024",
                 "contactPoint": [
                   {

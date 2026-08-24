@@ -7,8 +7,6 @@ import {
   Globe,
   ChevronUp,
   ChevronRight,
-  Wrench,
-  Sparkles,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
@@ -47,9 +45,14 @@ const Footer = ({ onNavClick }) => {
               {footer.slogan || "Pioneering clean, cost-effective CNG mobility and energy infrastructure across Nigeria."}
             </p>
 
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs text-slate-300">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-              <span>Conversion Centres Active & Online</span>
+            <div className="flex flex-wrap items-center gap-2">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs text-slate-300">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+                <span>Conversion Centres Active & Online</span>
+              </div>
+              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-burnt-orange/15 border border-burnt-orange/30 text-xs font-semibold text-burnt-orange">
+                <span>A subsidiary of Adesa HQ</span>
+              </div>
             </div>
 
             <div className="flex items-center gap-3 pt-2">
@@ -83,7 +86,7 @@ const Footer = ({ onNavClick }) => {
                 <li key={item.label}>
                   <button
                     onClick={() => handleLinkClick(item)}
-                    className="text-slate-400 hover:text-burnt-orange text-sm font-sans flex items-center gap-1.5 transition-colors cursor-pointer group"
+                    className="text-slate-400 hover:text-burnt-orange text-sm font-sans flex items-center gap-1.5 transition-colors cursor-pointer group text-left"
                   >
                     <ChevronRight className="w-3.5 h-3.5 text-slate-600 group-hover:text-burnt-orange transition-colors" />
                     <span>{item.label}</span>
@@ -145,7 +148,7 @@ const Footer = ({ onNavClick }) => {
 
         {/* Bottom Legal bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-sans">
-          <p>© {new Date().getFullYear()} Adesa Energy. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Adesa Energy — A subsidiary of Adesa HQ. All rights reserved.</p>
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
             {[
               { label: "Privacy Policy", path: "/privacy-policy" },

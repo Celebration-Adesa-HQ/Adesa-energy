@@ -41,7 +41,7 @@ function createCareerMailHref({ title, general = false }) {
 export const siteConfig = {
   name: "Adesa Energy",
   description:
-    "Adesa Energy delivers mobile CNG conversion and on-demand refueling services. Cut fuel costs, improve efficiency, and power fleets and personal vehicles across Nigeria.",
+    "Adesa Energy (a subsidiary of Adesa HQ) delivers mobile CNG conversion and on-demand refueling services. Cut fuel costs, improve efficiency, and power fleets and personal vehicles across Nigeria.",
   url: "https://www.adesaenergy.com",
   ogImage: "/adesa-energy.png",
   links: {
@@ -51,12 +51,11 @@ export const siteConfig = {
   // Global site settings
   siteName: "Adesa Energy",
   siteDescription:
-    "Powering progress, fueling tomorrow. Your trusted partner for CNG conversions and refueling services in Nigeria.",
+    "A subsidiary of Adesa HQ. Powering progress, fueling tomorrow. Your trusted partner for CNG conversions and refueling services in Nigeria.",
   siteUrl: "https://www.adesaenergy.com",
   email: "info@adesahq.com",
   phone: "+2348168823730",
   address: "2 Isheri road, Ojudu-Berger, Lagos",
-
   // Navigation items
   navItems: [
     { id: "home", label: "Home", path: "/" },
@@ -175,7 +174,7 @@ export const siteConfig = {
     headline: "Powering progress, fueling tomorrow",
 
     description: [
-      "Adesa Energy is a pioneering clean energy company dedicated to revolutionizing the way Nigeria powers its vehicles. Founded with a vision to make sustainable fuel accessible to everyone, we specialize in mobile CNG conversions and on-demand refueling services.",
+      "Adesa Energy is a pioneering clean energy company and a subsidiary of Adesa HQ, dedicated to revolutionizing the way Nigeria powers its vehicles. Founded with a vision to make sustainable fuel accessible to everyone, we specialize in mobile CNG conversions and on-demand refueling services.",
       "Our mission is simple: to help businesses and individuals reduce their fuel costs while contributing to a cleaner environment. With our innovative approach and commitment to excellence, we're making CNG adoption effortless and rewarding.",
     ],
 

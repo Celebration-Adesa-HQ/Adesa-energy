@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { Menu, X, ArrowRight, Sparkles } from "lucide-react";
+import { Menu, X, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import NavLinks from "./NavLinks";
 import ThemeSwitch from "../ThemeSwitch";
@@ -49,7 +49,7 @@ export default function Navbar({ activeSection, handleNavClick }) {
               Adesa Energy
             </span>
             <span className="text-[10px] uppercase font-semibold tracking-wider text-burnt-orange">
-              Clean Energy Systems
+              A subsidiary of Adesa HQ
             </span>
           </div>
         </button>
@@ -119,9 +119,14 @@ export default function Navbar({ activeSection, handleNavClick }) {
                         className="object-contain"
                       />
                     </div>
-                    <span className="font-heading font-bold text-slate-900 dark:text-white">
-                      Adesa Energy
-                    </span>
+                    <div className="flex flex-col text-left">
+                      <span className="font-heading font-bold text-slate-900 dark:text-white leading-none">
+                        Adesa Energy
+                      </span>
+                      <span className="text-[9px] uppercase font-semibold tracking-wider text-burnt-orange mt-0.5">
+                        A subsidiary of Adesa HQ
+                      </span>
+                    </div>
                   </div>
                   <button
                     onClick={() => setOpen(false)}

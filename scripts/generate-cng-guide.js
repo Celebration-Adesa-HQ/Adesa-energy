@@ -106,7 +106,7 @@ doc.rect(0, 8, PAGE_W, 4).fillColor(ACCENT_ORANGE).fill();
 
 // Brand name
 doc.font("Helvetica-Bold").fontSize(13).fillColor(BRAND_GREEN)
-   .text("ADESA ENERGY", MARGIN, 60, { align: "center", width: CONTENT_W });
+   .text("ADESA ENERGY  ·  A SUBSIDIARY OF ADESA HQ", MARGIN, 60, { align: "center", width: CONTENT_W });
 
 // Title
 doc.moveDown(1.5);
@@ -154,7 +154,7 @@ doc.font("Helvetica").fontSize(9).fillColor("#5A7A8A")
    .text("www.adesaenergy.com  |  info@adesahq.com  |  +234 816 882 3730",
          MARGIN, doc.page.height - 50, { align: "center", width: CONTENT_W });
 doc.font("Helvetica").fontSize(8).fillColor("#3A5A6A")
-   .text("© 2026 Adesa Energy. All rights reserved.",
+   .text("© 2026 Adesa Energy — A subsidiary of Adesa HQ. All rights reserved.",
          MARGIN, doc.page.height - 34, { align: "center", width: CONTENT_W });
 
 // Bottom accent stripe
