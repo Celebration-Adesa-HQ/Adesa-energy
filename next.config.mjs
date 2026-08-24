@@ -9,6 +9,21 @@ const nextConfig = {
   experimental: {
     globalNotFound: true,
   },
+  async redirects() {
+    return [
+      // Fix GSC 404: Malformed URLs crawled by bots (/$, /&)
+      {
+        source: "/$",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/&",
+        destination: "/",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
