@@ -116,7 +116,7 @@ export default function RootLayout({ children }) {
                 "contactPoint": [
                   {
                     "@type": "ContactPoint",
-                    "telephone": "+2348023087303",
+                    "telephone": "+2348168823730",
                     "contactType": "customer service",
                     "areaServed": "NG",
                     "availableLanguage": "English",
@@ -154,7 +154,7 @@ export default function RootLayout({ children }) {
                 "name": "Adesa Energy",
                 "image": "https://www.adesaenergy.com/adesa-energy.png",
                 "url": "https://www.adesaenergy.com",
-                "telephone": "+2348023087303",
+                "telephone": "+2348168823730",
                 "email": "info@adesahq.com",
                 "priceRange": "₦₦",
                 "openingHours": "Mo-Sa 08:00-18:00",
@@ -182,7 +182,7 @@ export default function RootLayout({ children }) {
                       "addressRegion": "Lagos State",
                       "addressCountry": "NG",
                     },
-                    "telephone": "+2348023087303",
+                    "telephone": "+2348168823730",
                   },
                   {
                     "@type": "LocalBusiness",
@@ -193,7 +193,7 @@ export default function RootLayout({ children }) {
                       "addressRegion": "Kwara State",
                       "addressCountry": "NG",
                     },
-                    "telephone": "+2348023087303",
+                    "telephone": "+2348168823730",
                   },
                   {
                     "@type": "LocalBusiness",
@@ -204,7 +204,7 @@ export default function RootLayout({ children }) {
                       "addressRegion": "FCT Abuja",
                       "addressCountry": "NG",
                     },
-                    "telephone": "+2348023087303",
+                    "telephone": "+2348168823730",
                   },
                 ],
                 "sameAs": [

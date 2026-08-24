@@ -54,7 +54,7 @@ export const siteConfig = {
     "Powering progress, fueling tomorrow. Your trusted partner for CNG conversions and refueling services in Nigeria.",
   siteUrl: "https://www.adesaenergy.com",
   email: "info@adesahq.com",
-  phone: "+2348023087303",
+  phone: "+2348168823730",
   address: "2 Isheri road, Ojudu-Berger, Lagos",
 
   // Navigation items
@@ -931,7 +931,7 @@ export const siteConfig = {
       {
         type: "phone",
         title: "Phone",
-        value: "+2348023087303",
+        value: "+2348168823730",
         note: "Mon-Sat, 8am-6pm",
       },
       {
@@ -1067,7 +1067,7 @@ export const siteConfig = {
     },
     contact: {
       address: "2 Isheri road, Ojudu-Berger, Lagos",
-      phone: "+2348023087303",
+      phone: "+2348168823730",
       email: "info@adesahq.com",
       website: "www.adesaenergy.com",
     },

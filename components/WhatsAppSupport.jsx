@@ -6,7 +6,7 @@ import { MessageCircle } from "lucide-react";
 
 const STORAGE_KEY = "adesa-whatsapp-support-position-v2";
 const SUPPORT_URL =
-  "https://wa.me/2348023087303?text=Hello%20Adesa%20Energy%2C%20I%20would%20like%20help%20from%20customer%20support.";
+  "https://wa.me/2348168823730?text=Hello%20Adesa%20Energy%2C%20I%20would%20like%20help%20from%20customer%20support.";
 
 function clamp(value, minimum, maximum) {
   return Math.min(maximum, Math.max(minimum, value));
