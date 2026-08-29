@@ -9,6 +9,7 @@ import {
   Twitter,
   Instagram,
   Facebook,
+  Clock,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { siteConfig } from "@/config/site";
@@ -18,15 +19,17 @@ const iconMap = {
   phone: Phone,
   email: Mail,
   website: Globe,
+  hours: Clock,
 };
 
 const socialMap = { Linkedin, Twitter, Instagram, Facebook };
 
-const ContactInfo = () => {
-  const contactConfig = siteConfig.waitlist;
+const ContactInfo = ({ configKey = "contact" }) => {
+  const infoData = siteConfig[configKey] || siteConfig.contact || siteConfig.convert;
+
   return (
     <div className="lg:col-span-1 space-y-4">
-      {contactConfig.infoCards.map((card, index) => {
+      {infoData.infoCards.map((card, index) => {
         const Icon = iconMap[card.type] || MapPin;
 
         return (
@@ -50,8 +53,8 @@ const ContactInfo = () => {
                   {card.value}
                 </p>
                 {card.note && (
-                  <p className="text-xs text-slate-400 font-sans pt-0.5">
-                    {card.note}
+                  <p className="text-xs text-slate-400 dark:text-slate-400 font-sans pt-0.5 flex items-center gap-1">
+                    <span>{card.note}</span>
                   </p>
                 )}
               </div>
@@ -71,10 +74,10 @@ const ContactInfo = () => {
           Follow Our Journey
         </h3>
         <p className="text-xs text-slate-300 mb-4 font-sans leading-relaxed">
-          Stay connected on social platforms for deployment updates and live conversion showcases.
+          Stay connected on social platforms for deployment updates, CNG workshops, and clean energy insights.
         </p>
         <div className="flex items-center gap-2.5">
-          {contactConfig.socials.map((social) => {
+          {infoData.socials.map((social) => {
             const Icon = socialMap[social.name] || Globe;
             return (
               <motion.a

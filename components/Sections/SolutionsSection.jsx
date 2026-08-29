@@ -110,7 +110,7 @@ const SolutionsSection = () => {
 
                 <div className="p-7 pt-0">
                   <button
-                    onClick={() => onNavClick("waitlist")}
+                    onClick={() => onNavClick("convert", "/convert")}
                     className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-slate-100 dark:bg-white/5 hover:bg-burnt-orange hover:text-white dark:hover:bg-burnt-orange dark:hover:text-white text-slate-800 dark:text-slate-200 text-sm font-heading font-semibold transition-all cursor-pointer group/btn"
                   >
                     <span>Request Solution</span>

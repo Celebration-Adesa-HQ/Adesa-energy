@@ -142,6 +142,10 @@ const Footer = ({ onNavClick }) => {
                 <Globe className="w-4 h-4 text-burnt-orange shrink-0" />
                 <span>{footer.contact.website}</span>
               </li>
+              <li className="flex items-center gap-3 text-xs text-slate-400">
+                <span className="text-burnt-orange font-semibold">Hours:</span>
+                <span>{footer.contact.hours || "Mon-Fri, 9am-5pm"}</span>
+              </li>
             </ul>
           </div>
         </div>

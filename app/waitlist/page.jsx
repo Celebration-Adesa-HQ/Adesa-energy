@@ -1,9 +1,5 @@
-import ContactSection from "@/components/Contact_components/ContactSection";
+import { redirect } from "next/navigation";
 
-export default function WaitlistPage() {
-  return (
-    <div>
-      <ContactSection />
-    </div>
-  );
+export default function WaitlistRedirect() {
+  redirect("/convert");
 }

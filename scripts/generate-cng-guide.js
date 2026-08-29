@@ -254,7 +254,7 @@ sectionHeading("Chapter 4 — The Adesa Energy Conversion Process");
 bodyText("Adesa Energy performs mobile conversions at your location — no need to drive to a workshop. Here is what to expect:");
 
 numberedList([
-  "Booking — Join our waitlist at www.adesaenergy.com/waitlist or call +234 816 882 3730 to schedule your conversion appointment.",
+  "Booking — Request your conversion at www.adesaenergy.com/convert or call +234 816 882 3730 to schedule your conversion appointment.",
   "Vehicle Assessment (30 min) — Our technician inspects your engine, fuel system, and chassis to confirm suitability and recommend the right kit size.",
   "Kit Installation (3–5 hours) — We mount the CNG cylinder, run high-pressure lines, install the SGI ECU, connect injectors, and calibrate the system.",
   "Leak & Safety Test — Every connection is tested with a calibrated gas-leak detector before the vehicle leaves our care.",
@@ -358,10 +358,10 @@ doc.save().roundedRect(MARGIN, ctaY, CONTENT_W, 6, 5).fillColor(BRAND_GREEN).fil
 doc.font("Helvetica-Bold").fontSize(16).fillColor(WHITE)
    .text("Ready to Switch to CNG?", MARGIN, ctaY + 20, { align: "center", width: CONTENT_W });
 doc.font("Helvetica").fontSize(10.5).fillColor("#A8D8BE")
-   .text("Join our waitlist today and lock in early-bird conversion pricing.\nMobile service — we come to you anywhere in Lagos, Ilorin, or Abuja.",
+   .text("Book your conversion today and save up to 50% on fuel costs.\nMobile service — we come to you anywhere in Lagos, Ilorin, or Abuja.",
          MARGIN, doc.y + 4, { align: "center", width: CONTENT_W });
 doc.font("Helvetica-Bold").fontSize(10).fillColor(BRAND_GREEN)
-   .text("www.adesaenergy.com/waitlist   ·   +234 816 882 3730   ·   info@adesahq.com",
+   .text("www.adesaenergy.com/convert   ·   +234 816 882 3730   ·   info@adesahq.com",
          MARGIN, doc.y + 10, { align: "center", width: CONTENT_W });
 
 // Bottom accent stripes

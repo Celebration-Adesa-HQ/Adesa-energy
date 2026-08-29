@@ -66,10 +66,10 @@ export default function Navbar({ activeSection, handleNavClick }) {
         <div className="hidden lg:flex items-center gap-3">
           <ThemeSwitch />
           <Link
-            href="/waitlist"
+            href="/contact"
             className="relative group inline-flex items-center gap-2 bg-linear-to-r from-[#F37621] via-[#F97316] to-[#F59E0B] text-white px-5 py-2.5 rounded-xl font-heading font-semibold text-sm shadow-md hover:shadow-orange-500/25 hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer overflow-hidden"
           >
-            <span>Convert Today</span>
+            <span>Contact Us</span>
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
           </Link>
         </div>
@@ -149,11 +149,11 @@ export default function Navbar({ activeSection, handleNavClick }) {
 
               <div className="pt-6 border-t border-slate-200 dark:border-white/10 space-y-3">
                 <Link
-                  href="/waitlist"
+                  href="/contact"
                   onClick={() => setOpen(false)}
                   className="w-full flex items-center justify-center gap-2 bg-linear-to-r from-[#F37621] to-[#F59E0B] text-white py-3.5 px-4 rounded-xl font-heading font-semibold text-base shadow-md cursor-pointer text-center"
                 >
-                  <span>Convert Today</span>
+                  <span>Contact Us</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
                 <p className="text-xs text-center text-slate-500 dark:text-slate-400">

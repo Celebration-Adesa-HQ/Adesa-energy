@@ -106,7 +106,7 @@ const CalculatorResults = ({ calculatorResult, onNavClick }) => {
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              onClick={() => onNavClick("/waitlist")}
+              onClick={() => onNavClick("/convert")}
               className="w-full inline-flex items-center justify-center gap-2 bg-linear-to-r from-[#F37621] to-[#F59E0B] text-white py-3.5 rounded-xl font-heading font-bold text-sm shadow-md hover:shadow-orange-500/30 transition-all cursor-pointer"
             >
               <span>{siteConfig.calculator.results.convertButton}</span>

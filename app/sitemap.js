@@ -23,10 +23,16 @@ export default async function sitemap() {
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/waitlist`,
-      lastModified: new Date("2026-06-01"),
+      url: `${baseUrl}/convert`,
+      lastModified: new Date("2026-08-29"),
       changeFrequency: "monthly",
       priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/contact`,
+      lastModified: new Date("2026-08-29"),
+      changeFrequency: "monthly",
+      priority: 0.8,
     },
     {
       url: `${baseUrl}/calculator`,
