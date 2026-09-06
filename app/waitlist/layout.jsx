@@ -57,7 +57,7 @@ export default function ContactLayout({ children }) {
     "inLanguage": "en-NG",
     "contactOption": "TollFree",
     "telephone": "+2348168823730",
-    "email": "info@adesahq.com",
+    "email": "adeinfo@adesahq.com",
     "availableLanguage": {
       "@type": "Language",
       "name": "English",

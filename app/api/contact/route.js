@@ -37,8 +37,8 @@ export async function POST(req) {
     const { name, email, phone, subject, message } = parsed.data;
 
     await resend.emails.send({
-      from: `Adesa Energy Contact <${process.env.RESEND_FROM || "info@adesahq.com"}>`,
-      to: ["info@adesahq.com"],
+      from: `Adesa Energy Contact <${process.env.RESEND_FROM || "adeinfo@adesahq.com"}>`,
+      to: ["adeinfo@adesahq.com"],
       replyTo: email,
       subject: `New Contact Submission: ${subject} (${name})`,
       html: contactEmailTemplate({

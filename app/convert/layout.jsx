@@ -50,7 +50,7 @@ export default function ConvertLayout({ children }) {
       name: siteConfig.name,
       url: siteConfig.url,
       telephone: "+2348168823730",
-      email: "info@adesahq.com",
+      email: "adeinfo@adesahq.com",
     },
     description:
       "Professional vehicle and fleet CNG conversion services across Nigeria. Reduce fuel costs up to 50% with certified conversion kits.",

@@ -57,8 +57,8 @@ export async function POST(req) {
       if (process.env.RESEND_CONTACT_API_KEY && process.env.RESEND_FROM) {
         await resend.emails.send({
           from: `Adesa Energy Conversion <${process.env.RESEND_FROM}>`,
-          to: ["info@adesahq.com"],
-          replyTo: leadData.email || "info@adesahq.com",
+          to: ["adeinfo@adesahq.com"],
+          replyTo: leadData.email || "adeinfo@adesahq.com",
           subject: `🚗 New CNG Conversion Booking: ${leadData.firstName} ${leadData.lastName} (${leadData.vehicleType})`,
           html: convertEmailTemplate(leadData),
         });

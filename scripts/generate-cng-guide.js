@@ -151,7 +151,7 @@ badges.forEach((b, i) => {
 
 // Footer
 doc.font("Helvetica").fontSize(9).fillColor("#5A7A8A")
-   .text("www.adesaenergy.com  |  info@adesahq.com  |  +234 816 882 3730",
+   .text("www.adesaenergy.com  |  adeinfo@adesahq.com  |  +234 816 882 3730",
          MARGIN, doc.page.height - 50, { align: "center", width: CONTENT_W });
 doc.font("Helvetica").fontSize(8).fillColor("#3A5A6A")
    .text("© 2026 Adesa Energy — A subsidiary of Adesa HQ. All rights reserved.",
@@ -361,7 +361,7 @@ doc.font("Helvetica").fontSize(10.5).fillColor("#A8D8BE")
    .text("Book your conversion today and save up to 50% on fuel costs.\nMobile service — we come to you anywhere in Lagos, Ilorin, or Abuja.",
          MARGIN, doc.y + 4, { align: "center", width: CONTENT_W });
 doc.font("Helvetica-Bold").fontSize(10).fillColor(BRAND_GREEN)
-   .text("www.adesaenergy.com/convert   ·   +234 816 882 3730   ·   info@adesahq.com",
+   .text("www.adesaenergy.com/convert   ·   +234 816 882 3730   ·   adeinfo@adesahq.com",
          MARGIN, doc.y + 10, { align: "center", width: CONTENT_W });
 
 // Bottom accent stripes

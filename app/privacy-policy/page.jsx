@@ -189,11 +189,11 @@ export default function PrivacyPolicyPage() {
               handle your data, please reach out to us.
             </p>
             <a
-              href="mailto:info@adesahq.com"
+              href="mailto:adeinfo@adesahq.com"
               className="inline-flex items-center gap-2 bg-[#F37621] hover:bg-[#e06810] text-white px-6 py-3 rounded-xl font-medium transition-colors"
             >
               <Mail className="w-4 h-4" />
-              info@adesahq.com
+              adeinfo@adesahq.com
             </a>
           </motion.div>
 

@@ -90,7 +90,7 @@ const sections = [
       "Cancellations within 24 hours of the appointment may incur a cancellation fee.",
       "Refunds for completed CNG conversions are subject to evaluation if a technical defect is identified.",
       "Refunds are processed within 5–10 business days via the original payment method.",
-      "Contact us at info@adesahq.com or +2348168823730 to initiate a cancellation or refund request.",
+      "Contact us at adeinfo@adesahq.com or +2348168823730 to initiate a cancellation or refund request.",
     ],
   },
   {
@@ -209,11 +209,11 @@ export default function TermsPage() {
               these Terms and Conditions.
             </p>
             <a
-              href="mailto:info@adesahq.com"
+              href="mailto:adeinfo@adesahq.com"
               className="inline-flex items-center gap-2 bg-[#59C6E5] hover:bg-[#45afd1] text-[#0f0f0f] font-medium px-6 py-3 rounded-xl transition-colors"
             >
               <Mail className="w-4 h-4" />
-              info@adesahq.com
+              adeinfo@adesahq.com
             </a>
           </motion.div>
 

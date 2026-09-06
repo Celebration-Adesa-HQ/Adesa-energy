@@ -7,7 +7,7 @@ import {
   CheckCircle,
 } from "lucide-react";
 
-const CAREERS_EMAIL = "career@adesahq.com";
+const CAREERS_EMAIL = "adecareer@adesahq.com";
 
 function createCareerMailHref({ title, general = false }) {
   const subject = general
@@ -53,7 +53,7 @@ export const siteConfig = {
   siteDescription:
     "A subsidiary of Adesa HQ. Powering progress, fueling tomorrow. Your trusted partner for CNG conversions and refueling services in Nigeria.",
   siteUrl: "https://www.adesaenergy.com",
-  email: "info@adesahq.com",
+  email: "adeinfo@adesahq.com",
   phone: "+2348168823730",
   address: "2 Isheri road, Ojudu-Berger, Lagos",
   // Navigation items
@@ -835,7 +835,7 @@ export const siteConfig = {
         "Adesa Energy is building the service infrastructure that helps fleets and drivers adopt CNG with less friction, lower operating costs, and less downtime.",
       primaryCTA: {
         label: "Talk to our investor team",
-        href: "mailto:info@adesahq.com?subject=Investor Inquiry",
+        href: "mailto:adeinfo@adesahq.com?subject=Investor Inquiry",
       },
       secondaryCTA: { label: "See how we operate", href: "/solutions" },
       image: "/blog-cng-adoption.webp",
@@ -897,7 +897,7 @@ export const siteConfig = {
       title: "Build the next chapter of cleaner mobility with us.",
       description:
         "Detailed commercial information is available through direct, confidential engagement with the Adesa Energy leadership team.",
-      href: "mailto:info@adesahq.com?subject=Investor Inquiry",
+      href: "mailto:adeinfo@adesahq.com?subject=Investor Inquiry",
       label: "Request an investor conversation",
     },
   },
@@ -937,7 +937,7 @@ export const siteConfig = {
       {
         type: "email",
         title: "Email Support",
-        value: "info@adesahq.com",
+        value: "adeinfo@adesahq.com",
         note: "Response within 24 hours",
       },
       {
@@ -1070,7 +1070,7 @@ export const siteConfig = {
       {
         type: "email",
         title: "Email Inquiries",
-        value: "info@adesahq.com",
+        value: "adeinfo@adesahq.com",
         note: "We reply within 24 hours",
       },
       {
@@ -1170,7 +1170,7 @@ export const siteConfig = {
     contact: {
       address: "2 Isheri road, Ojudu-Berger, Lagos",
       phone: "+2348168823730",
-      email: "info@adesahq.com",
+      email: "adeinfo@adesahq.com",
       website: "www.adesaenergy.com",
       hours: "Mon-Fri, 9am-5pm",
     },

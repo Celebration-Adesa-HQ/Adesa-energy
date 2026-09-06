@@ -115,7 +115,7 @@ export default function RootLayout({ children }) {
                 "parentOrganization": {
                   "@type": "Organization",
                   "name": "Adesa HQ",
-                  "email": "info@adesahq.com"
+                  "email": "adeinfo@adesahq.com"
                 },
                 "foundingDate": "2024",
                 "contactPoint": [
@@ -128,7 +128,7 @@ export default function RootLayout({ children }) {
                   },
                   {
                     "@type": "ContactPoint",
-                    "email": "info@adesahq.com",
+                    "email": "adeinfo@adesahq.com",
                     "contactType": "sales",
                     "areaServed": "NG",
                     "availableLanguage": "English",
@@ -160,7 +160,7 @@ export default function RootLayout({ children }) {
                 "image": "https://www.adesaenergy.com/adesa-energy.png",
                 "url": "https://www.adesaenergy.com",
                 "telephone": "+2348168823730",
-                "email": "info@adesahq.com",
+                "email": "adeinfo@adesahq.com",
                 "priceRange": "₦₦",
                 "openingHours": "Mo-Sa 08:00-18:00",
                 "description": "Mobile CNG vehicle conversion and on-demand refueling services across Nigeria.",

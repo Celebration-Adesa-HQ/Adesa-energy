@@ -258,11 +258,11 @@ export default function AccessibilityPage() {
               resolve the issue promptly.
             </p>
             <a
-              href="mailto:info@adesahq.com"
+              href="mailto:adeinfo@adesahq.com"
               className="inline-flex items-center gap-2 bg-[#59C6E5] hover:bg-[#45afd1] text-[#0f0f0f] font-medium px-6 py-3 rounded-xl transition-colors"
             >
               <Mail className="w-4 h-4" />
-              info@adesahq.com
+              adeinfo@adesahq.com
             </a>
           </motion.div>
 

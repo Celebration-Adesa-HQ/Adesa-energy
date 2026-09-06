@@ -53,7 +53,7 @@ export default function ContactLayout({ children }) {
     },
     inLanguage: "en-NG",
     telephone: "+2348168823730",
-    email: "info@adesahq.com",
+    email: "adeinfo@adesahq.com",
     openingHours: "Mo-Fr 09:00-17:00",
     availableLanguage: {
       "@type": "Language",
